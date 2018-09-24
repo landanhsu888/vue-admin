@@ -1,5 +1,5 @@
 <template>
-  <Button icon="el-icon-search" circle></Button>
+  <Button v-bind:icon="icon" v-bind:type="type" v-bind:circle="circle"></Button>
   <!-- Use Button instead of el-button when we use import -->
 </template>
 <script lang="ts">
@@ -9,6 +9,11 @@ import { Button } from 'element-ui'
 @Component({
   components: {
   Button: Button
+  },
+  props: {
+  icon: String,
+  type: String,
+  circle: Boolean
   }
   })
 class _Button extends Vue {
