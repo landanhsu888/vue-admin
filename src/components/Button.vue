@@ -16,10 +16,10 @@ import { Button } from 'element-ui'
   circle: Boolean
   }
   })
-class _Button extends Vue {
+class EButton extends Vue {
 }
 
-export default _Button
+export default EButton
 </script>
 
 <style scoped lang="scss">
