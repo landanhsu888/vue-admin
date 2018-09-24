@@ -15,8 +15,7 @@ import { Table } from 'element-ui'
   })
 class ETable extends Vue {
   data: Array<Object> = [] // Typescript, must declare property of Class before we use this.data
-  constructor () {
-    super()
+  created () {
     console.log(this.data)
   }
 }

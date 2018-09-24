@@ -39,6 +39,8 @@ import Table from './../components/Table.vue' // @ is an alias to /src
   }
   }
   })
-export default class Home extends Vue {
+class Home extends Vue {
 }
+
+export default Home
 </script>
