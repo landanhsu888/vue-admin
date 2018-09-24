@@ -16,10 +16,10 @@ import Table from './../components/Table.vue' // @ is an alias to /src
   components: {
   HelloWorld,
   Button
-  },
-  data: function () {
-  return {
-  users: [{
+  }
+  })
+class Home extends Vue {
+  users: Array<Object> = [{
   date: '2016-05-03',
   name: 'Tom',
   address: 'No. 189, Grove St, Los Angeles'
@@ -35,11 +35,10 @@ import Table from './../components/Table.vue' // @ is an alias to /src
   date: '2016-05-01',
   name: 'Tom',
   address: 'No. 189, Grove St, Los Angeles'
-  }]
+  }];
+  created () {
+    console.log('users', this.users)
   }
-  }
-  })
-class Home extends Vue {
 }
 
 export default Home
