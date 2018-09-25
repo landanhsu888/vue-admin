@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="./../assets/logo.png">
-    <Table v-bind:rows="users"></Table>
+    <Table :data="users" :labels="labels"></Table>
   </div>
 </template>
 
@@ -32,8 +32,9 @@ class Home extends Vue {
     name: 'Tom',
     address: 'No. 189, Grove St, Los Angeles'
   }];
+
+  labels: Array<string> = ['日期', '姓名', '地址'];
   created () {
-    console.log('users', this.users)
   }
 }
 
