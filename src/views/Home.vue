@@ -40,10 +40,7 @@ class Home extends Vue {
   }
 
   public onInsert (): void {
-    this.$store.commit('increment', 2)
-  }
-  public get doneTodosCount (): number {
-    return this.$store.getters.doneTodosCount
+    this.$store.dispatch('increment', 7)
   }
 
   public get count (): number {
