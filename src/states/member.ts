@@ -1,5 +1,5 @@
 let member = {
-    members: []
+  members: []
 }
 
 export default member

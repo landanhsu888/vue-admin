@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="./../assets/logo.png" v-on:click="onInsert">
-    <Table :data="users" :labels="labels"></Table>
+    <Table :data="members" :labels="labels"></Table>
     --{{count}}--
   </div>
 </template>
@@ -17,34 +17,22 @@ import Table from './../components/Table.vue' // @ is an alias to /src
   }
   })
 class Home extends Vue {
-  public users: Array<Object> = [{
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  }, {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  }, {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  }, {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  }];
-
-  public labels: Array<string> = ['日期', '姓名', '地址'];
+  public labels: Array<string> = ['ID', '地址', '姓名'];
   created (): void {
+    this.$store.dispatch('MEMBER_FIND')
   }
 
   public onInsert (): void {
-    this.$store.dispatch('increment', 7)
+    let member = {
+      email: 'seven@gmail.com',
+      name: 'Seven'
+    }
+    let members = [member]
+    this.$store.dispatch('MEMBER_INSERT', members)
   }
 
-  public get count (): number {
-    return this.$store.state.count
+  public get members (): number {
+    return this.$store.state.members
   }
 }
 
