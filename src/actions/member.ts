@@ -18,7 +18,7 @@ let member = {
   },
   MEMBER_INSERT (context: any, members: Array<Object>) {
     let member = members.shift();
-    return window.fetch('http://fea.jkpot.com:3002/api/member', {
+    return window.fetch('http://127.0.0.1:3002/api/member', {
       method: 'POST',
       body: JSON.stringify({
         ...member
