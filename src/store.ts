@@ -1,22 +1,21 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import memberState from './states/member'
+import memberMuaction from './muations/member'
+import memberAction from './actions/member'
+
 Vue.use(Vuex)
 
 let store = new Vuex.Store({
   state: {
-    count: 1
+    ...memberState
   },
   mutations: {
-    increment (state, n) {
-      // 变更状态
-      state.count = state.count + n
-    }
+    ...memberMuaction
   },
   actions: {
-    increment (context, n) {
-      context.commit('increment', n)
-    }
+    ...memberAction
   }
 })
 
