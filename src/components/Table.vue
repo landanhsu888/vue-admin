@@ -1,6 +1,6 @@
 <template>
-  <el-table :data="tdata">
-    <el-table-column :prop="'address'" v-for="(lebal, key) in labels" :label="lebal" :key="key">
+  <el-table :data="cdata">
+    <el-table-column :prop="cprops[key]" v-for="(lebal, key) in labels" :label="lebal" :key="key">
     </el-table-column>
   </el-table>
 </template>
@@ -23,18 +23,18 @@ class ETable extends Vue {
   created () {
   }
   // get Class.method , computed method in Vue via Typescript
-  public get tprops (): Array<string> {
+  public get cprops (): Array<string> {
     return Object.keys(this.data[0] || {})
   }
-  public set tprops (props: Array<string>) {
+  public set cprops (props: Array<string>) {
     this.props = props
   }
   // get Class.method , computed method in Vue via Typescript
-  public get tdata (): Array<Object> {
+  public get cdata (): Array<Object> {
     return this.data
   }
 
-  public set tdata (data: Array<Object>) {
+  public set cdata (data: Array<Object>) {
     this.data = data
   }
 }
