@@ -2,18 +2,20 @@
   <div class="home">
     <img alt="Vue logo" src="./../assets/logo.png" v-on:click="onInsert">
     <Table :data="members" :labels="labels"></Table>
-    --{{count}}--
+    <BackToTop></BackToTop>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { mapState } from 'vuex'
-import Table from './../components/Table.vue' // @ is an alias to /src
+import Table from './../components/Table.vue'
+import BackToTop from './../components/BackToTop.vue'
 
 @Component({
   components: {
-  Table
+    Table,
+    BackToTop
   }
   })
 class Home extends Vue {
