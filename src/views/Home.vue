@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="./../assets/logo.png" v-on:click="onInsert">
     <Table :data="members" :labels="labels"></Table>
     <BackToTop></BackToTop>
+    <UploadExcel></UploadExcel>
   </div>
 </template>
 
@@ -10,10 +11,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { mapState } from 'vuex'
 import BackToTop from './../components/BackToTop.vue'
+import UploadExcel from './../components/UploadExcel.vue'
 
 @Component({
   components: {
-  BackToTop
+  BackToTop,
+  UploadExcel
   }
   })
 class Home extends Vue {
