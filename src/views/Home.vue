@@ -9,13 +9,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { mapState } from 'vuex'
-import Table from './../components/Table.vue'
 import BackToTop from './../components/BackToTop.vue'
 
 @Component({
   components: {
-    Table,
-    BackToTop
+  BackToTop
   }
   })
 class Home extends Vue {
