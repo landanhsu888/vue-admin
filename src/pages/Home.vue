@@ -4,6 +4,7 @@
     <Table :data="members" :labels="labels"></Table>
     <BackToTop></BackToTop>
     <UploadExcel></UploadExcel>
+    <Hamburger></Hamburger>
   </div>
 </template>
 
@@ -12,11 +13,13 @@ import { Component, Vue } from 'vue-property-decorator'
 import { mapState } from 'vuex'
 import BackToTop from './../components/BackToTop.vue'
 import UploadExcel from './../components/UploadExcel.vue'
+import Hamburger from './../components/Hamburger.vue'
 
 @Component({
   components: {
   BackToTop,
-  UploadExcel
+  UploadExcel,
+  Hamburger
   }
   })
 class Home extends Vue {
