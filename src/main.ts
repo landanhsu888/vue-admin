@@ -6,7 +6,11 @@ import './registerServiceWorker'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import capitalizeFilter from './filters/capitalize'
+
 Vue.use(ElementUI)
+
+Vue.filter('capitalize', capitalizeFilter)
 
 Vue.config.productionTip = false
 
