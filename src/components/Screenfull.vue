@@ -49,7 +49,7 @@ class Screenfull extends Vue {
     return this.$store.state.errorLogs
   }
 
-  click (): void {
+  public click (): void {
     if (!screenfull || !screenfull.enabled) {
       this.$message({
         message: 'you browser can not work',

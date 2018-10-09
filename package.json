@@ -6,8 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "inspect": "vue-cli-service inspect",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "generate-icons": "vsvg -s ./src/svgs -t ./src/compiled-svgs"
   },
   "dependencies": {
     "@types/js-cookie": "^2.2.0",
@@ -16,10 +18,13 @@
     "js-cookie": "^2.2.0",
     "register-service-worker": "^1.0.0",
     "screenfull": "^3.3.3",
+    "vsvg": "^1.9.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
+    "vue-svg-inline-loader": "^1.2.0",
+    "vue-svg-loader": "^0.10.0",
     "vuex": "^3.0.1",
     "xlsx": "^0.14.0"
   },
@@ -40,6 +45,7 @@
     "sass-loader": "^7.0.1",
     "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
+    "vue-svg-icon": "^1.2.9",
     "vue-template-compiler": "^2.5.17"
   }
 }

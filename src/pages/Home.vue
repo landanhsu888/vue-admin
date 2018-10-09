@@ -1,10 +1,16 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="./../assets/logo.png" v-on:click="onInsert">
+    {{ "s tom" | capitalize }}
     <Table :data="members" :labels="labels"></Table>
     <BackToTop></BackToTop>
     <UploadExcel></UploadExcel>
-    <Hamburger></Hamburger>
+    <Hamburger v-bind:toggleClick="onInsert"></Hamburger>
+    <SizeSelect></SizeSelect>
+<icon name="chameleon" :scale="20"></icon>
+    <icon name="size" scale="20"></icon>
+    ---
+    <sss></sss>
   </div>
 </template>
 
@@ -14,12 +20,16 @@ import { mapState } from 'vuex'
 import BackToTop from './../components/BackToTop.vue'
 import UploadExcel from './../components/UploadExcel.vue'
 import Hamburger from './../components/Hamburger.vue'
-
+import SizeSelect from './../components/SizeSelect.vue'
+import bug from './../svg/bug.svg'
+import sss from './../svg/404.svg'
 @Component({
   components: {
   BackToTop,
   UploadExcel,
-  Hamburger
+  Hamburger,
+  SizeSelect,
+  sss
   }
   })
 class Home extends Vue {

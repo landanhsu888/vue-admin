@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import Cookies from 'js-cookie'
+
 import memberState from './states/member'
 import memberMuaction from './muations/member'
 import memberAction from './actions/member'
@@ -12,10 +14,26 @@ let store = new Vuex.Store({
     ...memberState
   },
   mutations: {
-    ...memberMuaction
+    ...memberMuaction,
+    SET_SIZE: (state: any, size: any): void => {
+      state.size = size
+      Cookies.set('size', size)
+    },
+    DEL_ALL_CACHED_VIEWS: (state: any): void => {
+      state.cachedViews = []
+    }
   },
   actions: {
-    ...memberAction
+    ...memberAction,
+    setSize ({ commit }: any, size: any): void {
+      commit('SET_SIZE', size)
+    },
+    delAllCachedViews ({ commit, state }: any): any {
+      return new Promise(resolve => {
+        commit('DEL_ALL_CACHED_VIEWS')
+        resolve([...state.cachedViews])
+      })
+    }
   }
 })
 

@@ -14,7 +14,7 @@ class SvgIcon extends Vue {
   @Prop()
   public iconClass!: string
 
-  @Prop( { default: '' })
+  @Prop({ default: '' })
   public className!: string
 
   public get iconName (): string {
