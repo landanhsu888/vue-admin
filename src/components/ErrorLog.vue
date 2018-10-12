@@ -56,7 +56,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component({
   name: 'ErrorLog',
   })
-class BackToTop extends Vue {
+class ErrorLog extends Vue {
 
   // data
   public dialogTableVisible: boolean = false
@@ -67,7 +67,7 @@ class BackToTop extends Vue {
   }
 }
 
-export default BackToTop
+export default ErrorLog
 </script>
 
 <style scoped lang="scss">
