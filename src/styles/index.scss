@@ -191,3 +191,12 @@ code {
 .multiselect--active {
   z-index: 1000 !important;
 }
+
+.svg-icon{
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.svg-icon path{
+  transform: scale(0.2);
+}

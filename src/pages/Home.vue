@@ -7,10 +7,8 @@
     <UploadExcel></UploadExcel>
     <Hamburger v-bind:toggleClick="onInsert"></Hamburger>
     <SizeSelect></SizeSelect>
-<icon name="chameleon" :scale="20"></icon>
-    <icon name="size" scale="20"></icon>
     ---
-    <sss></sss>
+    <Bug :class="'svg-icon'"></Bug>
   </div>
 </template>
 
@@ -21,15 +19,15 @@ import BackToTop from './../components/BackToTop.vue'
 import UploadExcel from './../components/UploadExcel.vue'
 import Hamburger from './../components/Hamburger.vue'
 import SizeSelect from './../components/SizeSelect.vue'
-import bug from './../svg/bug.svg'
-import sss from './../svg/404.svg'
+import Bug from './../svg/bug.svg'
+
 @Component({
   components: {
   BackToTop,
   UploadExcel,
   Hamburger,
   SizeSelect,
-  sss
+  Bug
   }
   })
 class Home extends Vue {
