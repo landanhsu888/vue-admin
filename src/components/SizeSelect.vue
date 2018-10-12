@@ -18,7 +18,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'SizeSelect',
   })
 class SizeSelect extends Vue {
-  // method
+  // computed
   public get size (): any {
     return this.$store.state.size
   }
