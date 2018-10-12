@@ -26,11 +26,13 @@ class LineMarker extends Vue {
 
   // data
   public chart: any = null
-  mounted() {
+
+  // Method of Life cycle
+  public mounted() {
     this.initChart()
   }
 
-  beforeDestroy() {
+  public beforeDestroy() {
     if (!this.chart) {
       return
     }
@@ -38,7 +40,7 @@ class LineMarker extends Vue {
     this.chart = null
   }
 
-  initChart() {
+  public initChart() {
     this.chart = echarts.init(document.getElementById(this.id))
 
     this.chart.setOption({
