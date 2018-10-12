@@ -10,10 +10,10 @@ import resize from './../mixins/resize'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'LineMarker',
+  name: 'MixChart',
   mixins: [resize]
   })
-class LineMarker extends Vue {
+class MixChart extends Vue {
 
   @Prop({ default: 'chart' })
   public className!: string
@@ -222,7 +222,7 @@ class LineMarker extends Vue {
   }  
 }
 
-export default LineMarker
+export default MixChart
 </script>
 
 <style scoped lang="scss">

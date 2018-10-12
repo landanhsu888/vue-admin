@@ -12,6 +12,7 @@
     "generate-icons": "vsvg -s ./src/svgs -t ./src/compiled-svgs"
   },
   "dependencies": {
+    "@types/echarts": "^4.1.1",
     "@types/js-cookie": "^2.2.0",
     "@types/screenfull": "^3.3.2",
     "echarts": "^4.2.0-rc.1",
