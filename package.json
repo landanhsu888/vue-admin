@@ -13,11 +13,13 @@
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/codemirror": "0.0.63",
     "@types/dropzone": "^5.0.4",
     "@types/echarts": "^4.1.1",
     "@types/js-cookie": "^2.2.0",
     "@types/screenfull": "^3.3.2",
     "axios": "^0.18.0",
+    "codemirror": "^5.40.2",
     "dropzone": "^5.5.1",
     "echarts": "^4.2.0-rc.1",
     "element-ui": "^2.4.7",
