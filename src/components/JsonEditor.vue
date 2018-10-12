@@ -34,12 +34,6 @@ class JsonEditor extends Vue {
     }
   }
 
-
-  // computed
-  public get size (): any {
-    return this.$store.state.size
-  }
-
   mounted() {
     let textarea: any = this.$refs.textarea;
     this.jsonEditor = CodeMirror.fromTextArea(textarea, {
