@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
-import { debounce } from './../utils'
+import { debounce } from './../utils/index'
 
 @Component
 class Resize extends Vue {
