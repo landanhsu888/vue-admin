@@ -16,13 +16,16 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 class Keyboard extends Vue {
 
   @Prop({ default: 'chart' })
-  public className!: String
+  public className!: string
+
   @Prop({ default: 'chart' })
-  public id!: String
+  public id!: string
+
   @Prop({ default: '200px' })
-  public width!: String
+  public width!: string
+
   @Prop({ default: '200px' })
-  public height!: String
+  public height!: string
 
   // data
   public chart: any = null
@@ -39,7 +42,8 @@ class Keyboard extends Vue {
   }
 
   initChart() {
-    this.chart = echarts.init(document.getElementById(this.id))
+    let ele: any = document.getElementById(this.id);
+    this.chart = echarts.init(ele)
 
     const xAxisData = []
     const data = []

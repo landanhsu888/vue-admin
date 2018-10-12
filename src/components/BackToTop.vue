@@ -17,10 +17,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'BackToTop',
   })
 class BackToTop extends Vue {
+
   @Prop({ default: 200 })
   public visibilityHeight!: number
+
   @Prop({ default: 0 })
   public backPosition!: number
+
   @Prop({ default: function () {
     return {
       right: '50px',
@@ -33,6 +36,7 @@ class BackToTop extends Vue {
     }
   } })
   public customStyle!: object
+  
   @Prop({ default: 'fade' })
   public transitionName!: string
 

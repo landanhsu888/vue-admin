@@ -12,9 +12,11 @@
     "generate-icons": "vsvg -s ./src/svgs -t ./src/compiled-svgs"
   },
   "dependencies": {
+    "@types/dropzone": "^5.0.4",
     "@types/echarts": "^4.1.1",
     "@types/js-cookie": "^2.2.0",
     "@types/screenfull": "^3.3.2",
+    "dropzone": "^5.5.1",
     "echarts": "^4.2.0-rc.1",
     "element-ui": "^2.4.7",
     "js-cookie": "^2.2.0",

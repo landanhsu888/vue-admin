@@ -20,7 +20,7 @@ class EBreadcrumb extends Vue {
   public levelList: any = null
 
   @Watch ('$route')
-  public tt () {
+  public routeHandler () {
     this.getBreadcrumb ()
   }
 
