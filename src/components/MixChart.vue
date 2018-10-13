@@ -17,10 +17,13 @@ class MixChart extends Vue {
 
   @Prop({ default: 'chart' })
   public className!: string
+
   @Prop({ default: 'chart' })
   public id!: string
+
   @Prop({ default: '200px' })
   public width!: string
+  
   @Prop({ default: '200px' })
   public height!: string
 
