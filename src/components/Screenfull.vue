@@ -35,12 +35,16 @@ import screenfull from 'screenfull'
   name: 'Screenfull',
   })
 class Screenfull extends Vue {
+
   @Prop( { default: 22 })
   public width!: number
+
   @Prop( { default: 22 })
   public height!: number
+
   @Prop( { default: '#48576a' })
   public fill!: String
+  
   // data
   public isFullscreen: boolean = false
 
