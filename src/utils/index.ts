@@ -2,7 +2,7 @@
  * Created by jiachenpan on 16/11/18.
  */
 
-export function parseTime(time: any, cFormat: any) {
+export function parseTime (time: any, cFormat: any) {
   if (arguments.length === 0) {
     return null
   }
@@ -23,20 +23,21 @@ export function parseTime(time: any, cFormat: any) {
     s: date.getSeconds(),
     a: date.getDay()
   }
-  const time_str = format.replace(/{(y|m|d|h|i|s|a)+}/g, (result: any, key: any) => {
-      
-      let value = formatObj[key]
+  const timeStr = format.replace(/{(y|m|d|h|i|s|a)+}/g, (result: any, key: any) => {
+    let value = formatObj[key]
     // Note: getDay() returns 0 on Sunday
-    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
+    if (key === 'a') {
+      return ['日', '一', '二', '三', '四', '五', '六'][value]
+    }
     if (result.length > 0 && value < 10) {
       value = '0' + value
     }
     return value || 0
   })
-  return time_str
+  return timeStr
 }
-  
-export function formatTime(time: any, option: any) {
+
+export function formatTime (time: any, option: any) {
   time = +time * 1000
   const d: any = new Date(time)
   const now = Date.now()
@@ -69,9 +70,9 @@ export function formatTime(time: any, option: any) {
     )
   }
 }
-  
+
 // 格式化时间
-export function getQueryObject(url: any) {
+export function getQueryObject (url: any) {
   url = url == null ? window.location.href : url
   const search = url.substring(url.lastIndexOf('?') + 1)
   const obj: any = {}
@@ -85,15 +86,16 @@ export function getQueryObject(url: any) {
   })
   return obj
 }
-  
+
 /**
  *get getByteLen
   * @param {Sting} val input value
   * @returns {number} output value
   */
-export function getByteLen(val: any) {
+export function getByteLen (val: any) {
   let len = 0
   for (let i = 0; i < val.length; i++) {
+    // eslint-disable-next-line
     if (val[i].match(/[^\x00-\xff]/gi) != null) {
       len += 1
     } else {
@@ -102,8 +104,8 @@ export function getByteLen(val: any) {
   }
   return Math.floor(len)
 }
-  
-export function cleanArray(actual: any) {
+
+export function cleanArray (actual: any) {
   const newArray = []
   for (let i = 0; i < actual.length; i++) {
     if (actual[i]) {
@@ -112,8 +114,8 @@ export function cleanArray(actual: any) {
   }
   return newArray
 }
-  
-export function param(json: any) {
+
+export function param (json: any) {
   if (!json) return ''
   return cleanArray(
     Object.keys(json).map(key => {
@@ -122,8 +124,8 @@ export function param(json: any) {
     })
   ).join('&')
 }
-  
-export function param2Obj(url: any) {
+
+export function param2Obj (url: any) {
   const search = url.split('?')[1]
   if (!search) {
     return {}
@@ -137,14 +139,14 @@ export function param2Obj(url: any) {
       '"}'
   )
 }
-  
-export function html2Text(val: any) {
+
+export function html2Text (val: any) {
   const div = document.createElement('div')
   div.innerHTML = val
   return div.textContent || div.innerText
 }
-  
-export function objectMerge(target: any, source: any) {
+
+export function objectMerge (target: any, source: any) {
   /* Merges two  objects,
       giving the last one precedence */
 
@@ -164,8 +166,8 @@ export function objectMerge(target: any, source: any) {
   })
   return target
 }
-  
-export function scrollTo(element: any, to: any, duration: any) {
+
+export function scrollTo (element: any, to: any, duration: any) {
   if (duration <= 0) return
   const difference = to - element.scrollTop
   const perTick = (difference / duration) * 10
@@ -175,8 +177,8 @@ export function scrollTo(element: any, to: any, duration: any) {
     scrollTo(element, to, duration - 10)
   }, 10)
 }
-  
-export function toggleClass(element: any, className: any) {
+
+export function toggleClass (element: any, className: any) {
   if (!element || !className) {
     return
   }
@@ -195,7 +197,7 @@ export function toggleClass(element: any, className: any) {
 export const pickerOptions = [
   {
     text: '今天',
-    onClick(picker: any) {
+    onClick (picker: any) {
       const end = new Date()
       const start = new Date(new Date().toDateString())
       end.setTime(start.getTime())
@@ -204,7 +206,7 @@ export const pickerOptions = [
   },
   {
     text: '最近一周',
-    onClick(picker: any) {
+    onClick (picker: any) {
       const end = new Date(new Date().toDateString())
       const start = new Date()
       start.setTime(end.getTime() - 3600 * 1000 * 24 * 7)
@@ -213,7 +215,7 @@ export const pickerOptions = [
   },
   {
     text: '最近一个月',
-    onClick(picker: any) {
+    onClick (picker: any) {
       const end = new Date(new Date().toDateString())
       const start = new Date()
       start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
@@ -222,7 +224,7 @@ export const pickerOptions = [
   },
   {
     text: '最近三个月',
-    onClick(picker: any) {
+    onClick (picker: any) {
       const end = new Date(new Date().toDateString())
       const start = new Date()
       start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
@@ -230,19 +232,19 @@ export const pickerOptions = [
     }
   }
 ]
-  
-export function getTime(type: any) {
+
+export function getTime (type: any) {
   if (type === 'start') {
     return new Date().getTime() - 3600 * 1000 * 24 * 90
   } else {
     return new Date(new Date().toDateString())
   }
 }
-  
-export function debounce(func: any, wait: any, immediate: any) {
+
+export function debounce (func: any, wait: any, immediate: any) {
   let timeout: any, args: any, context: any, timestamp: any, result: any
 
-  const later = function() {
+  const later = function () {
     // 据上一次触发时间间隔
     const last = +new Date() - timestamp
 
@@ -259,7 +261,7 @@ export function debounce(func: any, wait: any, immediate: any) {
     }
   }
 
-  return function(this: any,...args: any[]) {
+  return function (this: any, ...args: any[]) {
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout
@@ -279,7 +281,7 @@ export function debounce(func: any, wait: any, immediate: any) {
  * Has a lot of edge cases bug
  * If you want to use a perfect deep copy, use lodash's _.cloneDeep
  */
-export function deepClone(source: any) {
+export function deepClone (source: any) {
   if (!source && typeof source !== 'object') {
     // throw new Error('error arguments', 'shallowClone')
     throw new Error('error arguments')
@@ -295,6 +297,6 @@ export function deepClone(source: any) {
   return targetObj
 }
 
-export function uniqueArr(arr: any) {
+export function uniqueArr (arr: any) {
   return Array.from(new Set(arr))
 }
