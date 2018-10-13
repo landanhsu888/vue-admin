@@ -50,7 +50,6 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-import { mapGetters } from 'vuex'
 
 import Breadcrumb from './../components/Breadcrumb.vue'
 import Hamburger from './../components/Hamburger.vue'
@@ -102,6 +101,7 @@ class Navbar extends Vue {
 }
 
 export default Navbar
+
 </script>
 
 <style scoped lang="scss">
