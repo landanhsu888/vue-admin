@@ -10,6 +10,11 @@ import i18n from './lang' // Internationalization
 
 
 import capitalizeFilter from './filters/capitalize'
+import formatTimeFilter from './filters/formatTime'
+import numberFormatterFilter from './filters/numberFormatter'
+import parseTimeFilter from './filters/parseTime'
+import timeAgoFilter from './filters/timeAgo'
+import toThousandFilterFilter from './filters/toThousandFilter'
 
 Vue.use(ElementUI, {
   size: 'medium', // set element-ui default size
@@ -17,6 +22,11 @@ Vue.use(ElementUI, {
 })
 
 Vue.filter('capitalize', capitalizeFilter)
+Vue.filter('formatTime', formatTimeFilter)
+Vue.filter('numberFormatter', numberFormatterFilter)
+Vue.filter('parseTime', parseTimeFilter)
+Vue.filter('timeAgo', timeAgoFilter)
+Vue.filter('toThousandFilter', toThousandFilterFilter)
 
 Vue.config.productionTip = false
 
