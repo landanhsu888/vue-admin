@@ -117,7 +117,7 @@ class UploadExcel extends Vue {
   }
 
   private getHeaderRow(sheet: any) {
-    const headers = []
+    const headers: string[] = []
     const range = XLSX.utils.decode_range(sheet['!ref'])
     let C
     const R = range.s.r

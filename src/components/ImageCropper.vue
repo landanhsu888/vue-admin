@@ -183,7 +183,7 @@ class ImageCropper extends Vue {
   public errorMsg: string = ''
   public ratio: number = this.width / this.height
   public sourceImg: any = null
-  public sourceImgUrl: string = ''
+  public sourceImgUrl: any = ''
   public createImgUrl: string = ''
   public sourceImgMouseDown: any = {
     on: false,

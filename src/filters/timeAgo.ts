@@ -1,4 +1,4 @@
-function pluralize(time: any, label: any): string {
+function pluralize (time: any, label: any): string {
   if (time === 1) {
     return time + label
   }

@@ -106,7 +106,7 @@ export function getByteLen (val: any) {
 }
 
 export function cleanArray (actual: any) {
-  const newArray = []
+  const newArray: number[] = []
   for (let i = 0; i < actual.length; i++) {
     if (actual[i]) {
       newArray.push(actual[i])

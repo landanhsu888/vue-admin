@@ -10,7 +10,6 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
-import { Breadcrumb } from 'element-ui';
 import { generateTitle } from './../utils/i18n'
 
 @Component({

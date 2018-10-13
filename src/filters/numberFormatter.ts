@@ -1,5 +1,5 @@
-/* 数字 格式化*/
-function numberFormatter(num: any, digits: any): string {
+/* 数字 格式化 */
+function numberFormatter (num: any, digits: any): string {
   const si = [
     { value: 1E18, symbol: 'E' },
     { value: 1E15, symbol: 'P' },

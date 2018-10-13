@@ -41,7 +41,8 @@ class MixChart extends Vue {
   }
 
   public initChart() {
-    this.chart = echarts.init(document.getElementById(this.id))
+    let ele: any = document.getElementById(this.id)
+    this.chart = echarts.init(ele)
 
     this.chart.setOption({
       backgroundColor: '#394056',

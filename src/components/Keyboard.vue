@@ -45,9 +45,9 @@ class Keyboard extends Vue {
     let ele: any = document.getElementById(this.id);
     this.chart = echarts.init(ele)
 
-    const xAxisData = []
-    const data = []
-    const data2 = []
+    const xAxisData: number[] = []
+    const data: number[] = []
+    const data2: number[] = []
     for (let i = 0; i < 50; i++) {
       xAxisData.push(i)
       data.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5)
