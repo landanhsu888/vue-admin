@@ -10,60 +10,42 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 
-const version = require('element-ui/package.json').version // element-ui version from node_modules
-const ORIGINAL_THEME = '#409EFF' // default color
+import editorImage from './../components/editorImage.vue'
 
 @Component({
+    name: 'Tinymce',
+    components: {
+      editorImage
+    }
   })
-class ThemePicker extends Vue {
+class Tinymce extends Vue {
 
-  public chalk: string = ''
-  public theme: string = ORIGINAL_THEME
+  @Prop({ default: 'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '') })
+  public id!: string
   
-  @Watch('theme')
-  public onTheme(this:any, val: any, oldVal: any) {
-    if (typeof val !== 'string') return
-    const themeCluster = this.getThemeCluster(val.replace('#', ''))
-    const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
-    console.log(themeCluster, originalCluster)
-    const getHandler = (variable: any, id: any) => {
-      return () => {
-        const originalCluster = this.getThemeCluster(ORIGINAL_THEME.replace('#', ''))
-        const newStyle = this.updateStyle(this[variable], originalCluster, themeCluster)
+  @Prop({ default: ''})
+  public value!: string
 
-        let styleTag = document.getElementById(id)
-        if (!styleTag) {
-          styleTag = document.createElement('style')
-          styleTag.setAttribute('id', id)
-          document.head.appendChild(styleTag)
-        }
-        styleTag.innerText = newStyle
-      }
-    }
+  @Prop({ default: [] })
+  public toolbar!: any[]
 
-    const chalkHandler = getHandler('chalk', 'chalk-style')
+  @Prop({ default: 'file edit insert view format table' })
+  public menubar!: string
 
-    if (!this.chalk) {
-      const url = `https://unpkg.com/element-ui@${version}/lib/theme-chalk/index.css`
-      this.getCSSString(url, chalkHandler, 'chalk')
-    } else {
-      chalkHandler()
-    }
+  @Prop({ default: 360 })
+  public height!: number
+  
+  public hasChange: boolean = false
+  public hasInit: boolean = false
+  public tinymceId: string = this.id
+  public fullscreen: boolean = false
+  public languageTypeList: any = {
+    'en': 'en',
+    'zh': 'zh_CN'
+  }
 
-    const styles = [].slice.call(document.querySelectorAll('style'))
-      .filter((style: any) => {
-        const text = style.innerText
-        return new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text)
-      })
-    styles.forEach((style: any) => {
-      const { innerText } = style
-      if (typeof innerText !== 'string') return
-      style.innerText = this.updateStyle(innerText, originalCluster, themeCluster)
-    })
-    this.$message({
-      message: '换肤成功',
-      type: 'success'
-    })
+  public get language() {
+    return this.languageTypeList[this.$store.getters.language]
   }
 
   public updateStyle(style: any, oldCluster: any, newCluster:any): any {
@@ -133,7 +115,7 @@ class ThemePicker extends Vue {
 
 }
 
-export default ThemePicker
+export default Tinymce
 </script>
 
 <style scoped lang="scss">
