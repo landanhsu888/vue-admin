@@ -17,15 +17,15 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 
-import SidebarItem from './SidebarItem.vue'
+import SidebarItem from './../componets/SidebarItem.vue'
 
 @Component({
-  name: 'Navbar',
+  name: 'Sidebar',
   components: {
     SidebarItem
   }
   })
-class Navbar extends Vue {
+class Sidebar extends Vue {
 
   public get permission_routers () {
     return !this.$store.getters.permission_routers
@@ -40,7 +40,7 @@ class Navbar extends Vue {
   }
 }
 
-export default Navbar
+export default Sidebar
 
 </script>
 

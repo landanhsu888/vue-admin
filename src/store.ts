@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Cookies from 'js-cookie'
 
 import memberState from './states/member'
-import memberMuaction from './muations/member'
+import memberMutaction from './mutations/member'
 import memberAction from './actions/member'
 
 Vue.use(Vuex)
@@ -14,7 +14,7 @@ let store = new Vuex.Store({
     ...memberState
   },
   mutations: {
-    ...memberMuaction,
+    ...memberMutaction,
     SET_SIZE: (state: any, size: any): void => {
       state.size = size
       Cookies.set('size', size)
