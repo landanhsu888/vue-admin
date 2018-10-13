@@ -21,52 +21,37 @@ import TagsView from './../components/TagsView.vue'
 import ResizeHandlerMixin from './../mixins/ResizeHandler'
 
 @Component({
-    name: 'Layout'
+  name: 'Layout',
+  components: {
+    Navbar,
+    Sidebar,
+    AppMain,
+    TagsView
+  },
+  mixins: [ResizeHandlerMixin],
   })
 class Layout extends Vue {
+ 
+  public get sidebar() {
+    return this.$store.state.app.sidebar
+  }
 
-  @Prop()
-  public data!: any[] | object
-  
-  @Prop({ default: [] })
-  public columns!: any[]
+  public get device() {
+    return this.$store.state.app.device
+  }
 
-  @Prop()
-  public evalFunc!: Function
-
-  @Prop()
-  public evalArgs!: any[]
-
-  @Prop({ default: false })
-  public expandAll!: boolean
-  
-  public get formatData() {
-    let tmp
-    if (!Array.isArray(this.data)) {
-      tmp = [this.data]
-    } else {
-      tmp = this.data
+  public get classObj() {
+    return {
+      hideSidebar: !this.sidebar.opened,
+      openSidebar: this.sidebar.opened,
+      withoutAnimation: this.sidebar.withoutAnimation,
+      mobile: this.device === 'mobile'
     }
-    const func = this.evalFunc || treeToArray
-    const args = this.evalArgs ? [tmp, this.expandAll, ...this.evalArgs] : [tmp, this.expandAll]
-    return func.apply(null, args)
   }
 
-  public showRow (row: any) {
-    const show = (row.row.parent ? (row.row.parent._expanded && row.row.parent._show) : true)
-    row.row._show = show
-    return show ? 'animation:treeTableShow 1s;-webkit-animation:treeTableShow 1s;' : 'display:none;'
+  public handleClickOutside() {
+    this.$store.dispatch('closeSideBar', { withoutAnimation: false })
   }
-    // 切换下级是否展开
-  public toggleExpanded (trIndex: any) {
-    const record = this.formatData[trIndex]
-    record._expanded = !record._expanded
-  }
-    // 图标显示
-  public iconShow(index: number, record: any) {
-    return (index === 0 && record.children && record.children.length > 0)
-  }
-
 }
 
 export default Layout
@@ -74,6 +59,7 @@ export default Layout
 
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+
   @import "src/styles/mixin.scss";
   .app-wrapper {
     @include clearfix;
