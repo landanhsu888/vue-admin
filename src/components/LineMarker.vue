@@ -5,13 +5,13 @@
 <script lang="ts">
 
 import echarts from 'echarts'
-import resize from './../mixins/resize'
+import resizeMixin from './../mixins/resize'
 
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'LineMarker',
-  mixins: [resize]
+  mixins: [resizeMixin]
   })
 class LineMarker extends Vue {
 
