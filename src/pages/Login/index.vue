@@ -10,7 +10,7 @@
 
       <el-form-item prop="username">
         <span class="svg-container">
-          <user-svg class="icon" />
+          <user-svg class="svg-icon" />
         </span>
         <el-input
           v-model="loginForm.username"
@@ -23,7 +23,7 @@
 
       <el-form-item prop="password">
         <span class="svg-container">
-          <password-svg class="icon"/>
+          <password-svg class="svg-icon"/>
         </span>
         <el-input
           :type="passwordType"
@@ -33,7 +33,7 @@
           auto-complete="on"
           @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
-          <eye-svg class="icon" />
+          <eye-svg class="svg-icon" />
         </span>
       </el-form-item>
 
@@ -198,7 +198,7 @@ export default Login
     .el-input {
       display: inline-block;
       height: 47px;
-      width: 85%;
+      width: 90%;
       input {
         background: transparent;
         border: 0px;
@@ -255,6 +255,7 @@ export default Login
       vertical-align: middle;
       width: 30px;
       display: inline-block;
+      fill: $dark_gray;
     }
     .title-container {
       position: relative;
@@ -270,6 +271,7 @@ export default Login
         position: absolute;
         top: 5px;
         right: 0px;
+        fill: #fff;
       }
     }
     .show-pwd {
@@ -280,11 +282,20 @@ export default Login
       color: $dark_gray;
       cursor: pointer;
       user-select: none;
+      fill: $dark_gray;
     }
     .thirdparty-button {
       position: absolute;
       right: 35px;
       bottom: 28px;
+    }
+  }
+  .svg-icon.language {
+    width: 1.4em;
+    height: 1.4em;
+    
+    path {
+      transform: scale(0.14);
     }
   }
 </style>

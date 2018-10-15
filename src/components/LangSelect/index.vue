@@ -1,7 +1,7 @@
 <template>
   <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
     <div>
-      <internationalSvg class="svg-icon language"/>
+      <language-svg class="svg-icon language"/>
     </div>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item :disabled="language==='zh'" command="zh">中文</el-dropdown-item>
@@ -13,10 +13,13 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 
-import internationalSvg from '@/svg/international.svg'
+import languageSvg from '@/svg/language.svg'
 
 @Component({
-  name: 'LangSelect'
+  name: 'LangSelect',
+  components : {
+    languageSvg
+  }
   })
 class LangSelect extends Vue {
 
