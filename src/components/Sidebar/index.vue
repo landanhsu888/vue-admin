@@ -9,7 +9,7 @@
       text-color="#bfcbd9"
       active-text-color="#409EFF"
     >
-      <sidebar-item v-for="route in permission_routers" :key="route.name" :item="route" :base-path="route.path"/>
+      <sidebar-item v-for="route in permissionRouters" :key="route.name" :item="route" :base-path="route.path"/>
     </el-menu>
   </el-scrollbar>
 </template>
@@ -17,18 +17,17 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 
-import SidebarItem from '@/componets/SidebarItem/index.vue'
+import SidebarItem from '@/components/SidebarItem/index.vue'
 
 @Component({
   name: 'Sidebar',
   components: {
-    SidebarItem
+  SidebarItem
   }
   })
 class Sidebar extends Vue {
-
-  public get permission_routers () {
-    return !this.$store.getters.permission_routers
+  public get permissionRouters () {
+    return !this.$store.getters.permissionRouters
   }
 
   public get sidebar (): any {

@@ -41,20 +41,20 @@ import path from 'path'
 import { generateTitle } from '@/utils/i18n'
 import { validateURL } from '@/utils/validate'
 
-import Item from '@/compoents/Item/index.vue'
+import Item from '@/components/Item/index.vue'
 
 @Component({
   name: 'SidebarItem',
   components: {
-    Item
+  Item
   }
   })
 class SidebarItem extends Vue {
-  
+
   @Prop()
   public item!: object
 
-  @Prop({ default: false})
+  @Prop({ default: false })
   public isNest!: boolean
 
   @Prop({ default: '' })
@@ -62,52 +62,54 @@ class SidebarItem extends Vue {
 
   public onlyOneChild: any = null
 
+  public hasOneShowingChild (children, parent) {
+    const showingChildren = children.filter(item => {
+      if (item.hidden) {
+        return false
+      } else {
+        // Temp set(will be used if only has one showing child)
+        this.onlyOneChild = item
+        return true
+      }
+    })
 
-  public hasOneShowingChild(children, parent) {
-  const showingChildren = children.filter(item => {
-    if (item.hidden) {
-      return false
-    } else {
-      // Temp set(will be used if only has one showing child)
-      this.onlyOneChild = item
+    // When there is only one child router, the child router is displayed by default
+    if (showingChildren.length === 1) {
       return true
     }
-  })
 
-  // When there is only one child router, the child router is displayed by default
-  if (showingChildren.length === 1) {
-    return true
+    // Show parent if there are no child router to display
+    if (showingChildren.length === 0) {
+      this.onlyOneChild = {
+        ...parent,
+        path: '',
+        noShowingChildren: true
+      }
+      return true
+    }
+
+    return false
   }
 
-  // Show parent if there are no child router to display
-  if (showingChildren.length === 0) {
-    this.onlyOneChild = { ... parent, path: '', noShowingChildren: true }
-    return true
+  public resolvePath (routePath) {
+    return path.resolve(this.basePath, routePath)
   }
 
-  return false
-}
-
-public resolvePath(routePath) {
-  return path.resolve(this.basePath, routePath)
-}
-
-public isExternalLink(routePath) {
-  return validateURL(routePath)
-}
-
-public clickLink(routePath, e) {
-  if (!this.isExternalLink(routePath)) {
-    e.preventDefault()
-    const path = this.resolvePath(routePath)
-    this.$router.push(path)
+  public isExternalLink (routePath) {
+    return validateURL(routePath)
   }
-}
 
-public generateTitle (arg) {
-  return generateTitle (arg)
-}
+  public clickLink (routePath, e) {
+    if (!this.isExternalLink(routePath)) {
+      e.preventDefault()
+      const path = this.resolvePath(routePath)
+      this.$router.push(path)
+    }
+  }
 
+  public generateTitle (arg) {
+    return generateTitle(arg)
+  }
 }
 
 export default SidebarItem

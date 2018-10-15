@@ -14,7 +14,6 @@ import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 
 import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect//index.vue'
-import SocialSign from './socialsignin'
 
 import wechatSvg from '@/svg/wechat.svg'
 import qqSvg from '@/svg/qq.svg'

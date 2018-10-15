@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 
-import internationalSvg from './../svg/international.svg'
+import internationalSvg from '@/svg/international.svg'
 
 @Component({
   name: 'LangSelect'

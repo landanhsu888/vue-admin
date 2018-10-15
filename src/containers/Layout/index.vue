@@ -14,11 +14,11 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 
 import Navbar from '@/components/Navbar/index.vue'
-import Sidebar from '@/components/Sidervar/index.vue'
+import Sidebar from '@/components/Sidebar/index.vue'
 import AppMain from '@/components/AppMain/index.vue'
 import TagsView from '@/components/TagsView/index.vue'
 
-import ResizeHandlerMixin from '@/mixins/ResizeHandler'
+import ResizeHandlerMixin from '@/mixins/ResizeHandler/index'
 
 @Component({
   name: 'Layout',
