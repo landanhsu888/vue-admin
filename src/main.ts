@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 
 import './registerServiceWorker'
 import ElementUI from 'element-ui'
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
 
