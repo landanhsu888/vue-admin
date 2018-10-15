@@ -18,12 +18,11 @@ import languageSvg from '@/svg/language.svg'
 @Component({
   name: 'LangSelect',
   components : {
-    languageSvg
+  languageSvg
   }
   })
 class LangSelect extends Vue {
-
-  @Prop({ default: 'Header'})
+  @Prop({ default: 'Header' })
   public headerText!: string
 
   @Prop({ default: {} })
@@ -36,7 +35,7 @@ class LangSelect extends Vue {
     return this.$store.getters.language
   }
 
-  handleSetLanguage(lang: any) {
+  handleSetLanguage (lang: any) {
     this.$i18n.locale = lang
     this.$store.dispatch('setLanguage', lang)
     this.$message({

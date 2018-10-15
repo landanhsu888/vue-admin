@@ -18,8 +18,8 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/login',
-    component: () => import('@/pages/Login/index.vue'),
+    path: '/signin',
+    component: () => import('@/pages/Signin/index.vue'),
     hidden: true
   }
   // {
@@ -76,6 +76,12 @@ export const constantRouterMap = [
   //     }
   //   ]
   // }
+  ,
+  {
+    path: '*',
+    redirect: '/signin',
+    hidden: true
+  }
 ]
 
 let index = new Router({

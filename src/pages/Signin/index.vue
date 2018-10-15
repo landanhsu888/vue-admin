@@ -1,7 +1,7 @@
 <template>
-  <div class="login-container">
+  <div class="signin-container">
 
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+    <el-form ref="signinForm" :model="signinForm" :rules="signinRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
         <h3 class="title">{{ $t('login.title') }}</h3>
@@ -13,7 +13,7 @@
           <user-svg class="svg-icon" />
         </span>
         <el-input
-          v-model="loginForm.username"
+          v-model="signinForm.username"
           :placeholder="$t('login.username')"
           name="username"
           type="text"
@@ -27,17 +27,17 @@
         </span>
         <el-input
           :type="passwordType"
-          v-model="loginForm.password"
+          v-model="signinForm.password"
           :placeholder="$t('login.password')"
           name="password"
           auto-complete="on"
-          @keyup.enter.native="handleLogin" />
+          @keyup.enter.native="handleSignin" />
         <span class="show-pwd" @click="showPwd">
           <eye-svg class="svg-icon" />
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">{{ $t('login.logIn') }}</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleSignin">{{ $t('login.logIn') }}</el-button>
 
       <div class="tips">
         <span>{{ $t('login.username') }} : admin</span>
@@ -74,7 +74,7 @@ import eyeSvg from '@/svg/eye.svg'
 import passwordSvg from '@/svg/password.svg'
 
 @Component({
-  name: 'Login',
+  name: 'Signin',
   components: {
   LangSelect,
   SocialSign,
@@ -83,14 +83,14 @@ import passwordSvg from '@/svg/password.svg'
   passwordSvg
   }
   })
-class Login extends Vue {
+class Signin extends Vue {
 
-  public loginForm: object = {
+  public signinForm: object = {
     username: 'admin',
     password: '1111111'
   }
 
-  public loginRules: object = {
+  public signinRules: object = {
     username: [{
       required: true, 
       trigger: 'blur', 
@@ -144,8 +144,8 @@ class Login extends Vue {
     }
   }
 
-  handleLogin () {
-    this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+  handleSignin () {
+    this.$store.dispatch('LoginByUsername', this.signinForm).then(() => {
       this.loading = false
       this.$router.push({ path: this.redirect || '/' })
     }).catch(() => {
@@ -173,7 +173,7 @@ class Login extends Vue {
   }
 
 }
-export default Login
+export default Signin
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
@@ -185,7 +185,7 @@ export default Login
   $cursor: #fff;
 
   @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
-    .login-container .el-input input{
+    .signin-container .el-input input{
       color: $cursor;
       &::first-line {
         color: $light_gray;
@@ -194,7 +194,7 @@ export default Login
   }
 
   /* reset element-ui css */
-  .login-container {
+  .signin-container {
     .el-input {
       display: inline-block;
       height: 47px;
@@ -225,7 +225,7 @@ export default Login
   $dark_gray:#889aa4;
   $light_gray:#eee;
 
-  .login-container {
+  .signin-container {
     position: fixed;
     height: 100%;
     width: 100%;
