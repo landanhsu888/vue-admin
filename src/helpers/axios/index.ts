@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class axiosHelper {
+class AxiosHelper {
   get (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
     usingRecursive = !!usingRecursive;
 
@@ -130,4 +130,4 @@ class axiosHelper {
   }
 }
 
-export default axiosHelper
+export default AxiosHelper
