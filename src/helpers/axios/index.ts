@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class axiosHelper {
-  get (url: string, params: object | Array<object>, usingRecursive) {
+  get (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
     usingRecursive = !!usingRecursive;
 
     if (params instanceof Array) {
@@ -33,7 +33,7 @@ class axiosHelper {
     return axios.get(url, params)
   }
 
-  post (url: string, params: object | Array<object>, usingRecursive) {
+  post (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
     usingRecursive = !!usingRecursive;
 
     if (params instanceof Array) {
@@ -65,7 +65,7 @@ class axiosHelper {
     return axios.post(url, params)
   }
 
-  put (url: string, params: object | Array<object>, usingRecursive) {
+  put (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
     usingRecursive = !!usingRecursive;
 
     if (params instanceof Array) {
@@ -97,7 +97,7 @@ class axiosHelper {
     return axios.put(url, params)
   }
 
-  delete (url: string, params: object | Array<object>, usingRecursive) {
+  delete (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
     usingRecursive = !!usingRecursive;
 
     if (params instanceof Array) {
