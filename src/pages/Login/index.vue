@@ -10,7 +10,7 @@
 
       <el-form-item prop="username">
         <span class="svg-container">
-          <userSvg />
+          <user-svg />
         </span>
         <el-input
           v-model="loginForm.username"
@@ -23,7 +23,7 @@
 
       <el-form-item prop="password">
         <span class="svg-container">
-          <passwordSvg />
+          <password-svg />
         </span>
         <el-input
           :type="passwordType"
@@ -33,7 +33,7 @@
           auto-complete="on"
           @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
-          <eyeSvg />
+          <eye-svg />
         </span>
       </el-form-item>
 
