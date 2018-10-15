@@ -10,7 +10,7 @@
 
       <el-form-item prop="username">
         <span class="svg-container">
-          <userSvg>
+          <userSvg />
         </span>
         <el-input
           v-model="loginForm.username"
@@ -67,7 +67,7 @@ import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 
 import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect/index.vue'
-import SocialSign from './socialsignin.vue'
+import SocialSign from './socialSignin.vue'
 
 import userSvg from '@/svg/user.svg'
 import eyeSvg from '@/svg/eye.svg'
@@ -91,7 +91,7 @@ class Login extends Vue {
   }
 
   public loginRules: object = {
-    username: [{ 
+    username: [{
       required: true, 
       trigger: 'blur', 
       validator: (rule, value, callback) => {
@@ -102,9 +102,9 @@ class Login extends Vue {
         }
       }
     }],
-    password: [{ 
+    password: [{
       required: true, 
-      trigger: 'blur', 
+      trigger: 'blur',
       validator: (rule, value, callback) => {
         if (value.length < 6) {
           callback(new Error('The password can not be less than 6 digits'))
@@ -128,15 +128,15 @@ class Login extends Vue {
     this.redirect = route.query && route.query.redirect
   }
   
-  created() {
+  created () {
     // window.addEventListener('hashchange', this.afterQRScan)
   }
 
-  destroyed() {
+  destroyed () {
     // window.removeEventListener('hashchange', this.afterQRScan)
   }
 
-  showPwd() {
+  showPwd () {
     if (this.passwordType === 'password') {
       this.passwordType = ''
     } else {
@@ -144,9 +144,7 @@ class Login extends Vue {
     }
   }
 
-
-
-  handleLogin() {
+  handleLogin () {
     this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
       this.loading = false
       this.$router.push({ path: this.redirect || '/' })
@@ -155,7 +153,7 @@ class Login extends Vue {
     })
   }
 
-  afterQRScan() {
+  afterQRScan () {
     // const hash = window.location.hash.slice(1)
     // const hashObj = getQueryObject(hash)
     // const originUrl = window.location.origin
@@ -175,7 +173,6 @@ class Login extends Vue {
   }
 
 }
-
 export default Login
 </script>
 

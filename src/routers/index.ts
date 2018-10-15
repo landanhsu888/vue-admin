@@ -17,11 +17,11 @@ export const constantRouterMap = [
       }
     ]
   },
-  // {
-  //   path: '/login',
-  //   component: () => import('@/views/login/index'),
-  //   hidden: true
-  // },
+  {
+    path: '/login',
+    component: () => import('@/pages/Login/index.vue'),
+    hidden: true
+  }
   // {
   //   path: '/auth-redirect',
   //   component: () => import('@/views/login/authredirect'),
