@@ -1,10 +1,10 @@
 <template>
   <div class="signin-container">
 
-    <el-form ref="signinForm" :model="signinForm" :rules="signinRules" class="login-form" auto-complete="on" label-position="left">
+    <el-form ref="signinForm" :model="signinForm" :rules="signinRules" class="signin-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">{{ $t('login.title') }}</h3>
+        <h3 class="title">{{ $t('signin.title') }}</h3>
         <lang-select class="set-language"/>
       </div>
 
@@ -14,7 +14,7 @@
         </span>
         <el-input
           v-model="signinForm.username"
-          :placeholder="$t('login.username')"
+          :placeholder="$t('signin.username')"
           name="username"
           type="text"
           auto-complete="on"
@@ -28,7 +28,7 @@
         <el-input
           :type="passwordType"
           v-model="signinForm.password"
-          :placeholder="$t('login.password')"
+          :placeholder="$t('signin.password')"
           name="password"
           auto-complete="on"
           @keyup.enter.native="handleSignin" />
@@ -37,22 +37,22 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleSignin">{{ $t('login.logIn') }}</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleSignin">{{ $t('signin.signin') }}</el-button>
 
       <div class="tips">
-        <span>{{ $t('login.username') }} : admin</span>
-        <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
+        <span>{{ $t('signin.username') }} : admin</span>
+        <span>{{ $t('signin.password') }} : {{ $t('signin.any') }}</span>
       </div>
       <div class="tips">
-        <span style="margin-right:18px;">{{ $t('login.username') }} : editor</span>
-        <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
+        <span style="margin-right:18px;">{{ $t('signin.username') }} : editor</span>
+        <span>{{ $t('signin.password') }} : {{ $t('signin.any') }}</span>
       </div>
 
-      <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{ $t('login.thirdparty') }}</el-button>
+      <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{ $t('signin.thirdparty') }}</el-button>
     </el-form>
 
-    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog" append-to-body>
-      {{ $t('login.thirdpartyTips') }}
+    <el-dialog :title="$t('signin.thirdparty')" :visible.sync="showDialog" append-to-body>
+      {{ $t('signin.thirdpartyTips') }}
       <br>
       <br>
       <br>
@@ -230,7 +230,7 @@ export default Signin
     height: 100%;
     width: 100%;
     background-color: $bg;
-    .login-form {
+    .signin-form {
       position: absolute;
       left: 0;
       right: 0;
@@ -291,11 +291,11 @@ export default Signin
     }
   }
   .svg-icon.language {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.6em;
+    height: 1.6em;
     
     path {
-      transform: scale(0.14);
+      transform: scale(0.16);
     }
   }
 </style>

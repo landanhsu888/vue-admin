@@ -21,7 +21,7 @@ export const constantRouterMap = [
     path: '/signin',
     component: () => import('@/pages/Signin/index.vue'),
     hidden: true
-  }
+  },
   // {
   //   path: '/auth-redirect',
   //   component: () => import('@/views/login/authredirect'),
@@ -76,7 +76,6 @@ export const constantRouterMap = [
   //     }
   //   ]
   // }
-  ,
   {
     path: '*',
     redirect: '/signin',

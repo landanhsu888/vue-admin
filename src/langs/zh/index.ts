@@ -71,9 +71,9 @@ export default {
     theme: '换肤',
     size: '布局大小'
   },
-  login: {
+  signin: {
     title: '系统登录',
-    logIn: '登录',
+    signin: '登录',
     username: '账号',
     password: '密码',
     any: '随便填',

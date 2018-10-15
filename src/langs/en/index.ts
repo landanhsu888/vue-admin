@@ -71,9 +71,9 @@ export default {
     theme: 'Theme',
     size: 'Global Size'
   },
-  login: {
-    title: 'Login Form',
-    logIn: 'Log in',
+  signin: {
+    title: 'Signin Form',
+    signin: 'Sign in',
     username: 'Username',
     password: 'Password',
     any: 'any',
