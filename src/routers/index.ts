@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Layout from './../containers/Layout.vue'
+import Layout from '@/containers/Layout/index.vue'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export const constantRouterMap = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index')
+        component: () => import('@/pages/Redirect/index.vue')
       }
     ]
   },
