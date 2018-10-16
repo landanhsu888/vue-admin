@@ -3,10 +3,10 @@ import axios from 'axios'
 class AxiosHelper {
 
   /**
-   * @param {string} url
-   * @param {object | Array<object>} params
-   * @param {boolean} isPolling
-  */
+   * @param {string} url The URL of API laction
+   * @param {object | Array<object>} params The params of HTTP body 
+   * @param {boolean} isPolling Use polling (recursive) to send the request
+  **/
   get (url: string, params: object | Array<object>, isPolling: boolean = false) {
     isPolling = !!isPolling;
 
@@ -40,10 +40,10 @@ class AxiosHelper {
   }
 
   /**
-   * @param {string} url
-   * @param {object | Array<object>} params
-   * @param {boolean} isPolling
-  */
+   * @param {string} url The URL of API laction
+   * @param {object | Array<object>} params The params of HTTP body 
+   * @param {boolean} isPolling Use polling (recursive) to send the request
+  **/
   post (url: string, params: object | Array<object>, isPolling: boolean = false): Promise<object> | Promise<object[]> {
     isPolling = !!isPolling;
 
@@ -77,10 +77,10 @@ class AxiosHelper {
   }
 
   /**
-   * @param {string} url
-   * @param {object | Array<object>} params
-   * @param {boolean} isPolling
-  */
+   * @param {string} url The URL of API laction
+   * @param {object | Array<object>} params The params of HTTP body 
+   * @param {boolean} isPolling Use polling (recursive) to send the request
+  **/
   put (url: string, params: object | Array<object>, isPolling: boolean = false) {
     isPolling = !!isPolling;
 
@@ -112,12 +112,12 @@ class AxiosHelper {
 
     return axios.put(url, params)
   }
-  
+
   /**
-   * @param {string} url
-   * @param {object | Array<object>} params
-   * @param {boolean} isPolling
-  */
+   * @param {string} url The URL of API laction
+   * @param {object | Array<object>} params The params of HTTP body 
+   * @param {boolean} isPolling Use polling (recursive) to send the request
+  **/
   delete (url: string, params: object | Array<object>, isPolling: boolean = false) {
     isPolling = !!isPolling;
 
