@@ -20,7 +20,7 @@ class EBreadcrumb extends Vue {
 
   @Watch ('$route')
   public routeHandler () {
-    this.getBreadcrumb ()
+    this.getBreadcrumb()
   }
 
   created () {
@@ -32,7 +32,7 @@ class EBreadcrumb extends Vue {
     
     const first:any = matched[0]
     if (first && first.name.trim().toLocaleLowerCase() !== 'Dashboard'.toLocaleLowerCase()) {
-      matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
+      matched = [{ path: '/dashboard', meta: { title: 'dashboard' } }].concat(matched)
     }
     this.levelList = matched
   }

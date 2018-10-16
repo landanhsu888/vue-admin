@@ -4,9 +4,9 @@
 */
 'use strict'
 import Vue from 'vue'
-export default function treeToArray(data: any, expandAll: any, parent: any = null, level: any = null) {
+export default function treeToArray (data: any, expandAll: any, parent: any = null, level: any = null) {
   let tmp: any[] = []
-  Array.from(data).forEach(function(record: any) {
+  Array.from(data).forEach(function (record: any) {
     if (record._expanded === undefined) {
       Vue.set(record, '_expanded', expandAll)
     }

@@ -14,7 +14,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   mixins: [resizeMixin]
   })
 class Keyboard extends Vue {
-
   @Prop({ default: 'chart' })
   public className!: string
 
@@ -29,11 +28,11 @@ class Keyboard extends Vue {
 
   // data
   public chart: any = null
-  mounted() {
+  mounted () {
     this.initChart()
   }
 
-  beforeDestroy() {
+  beforeDestroy () {
     if (!this.chart) {
       return
     }
@@ -41,8 +40,8 @@ class Keyboard extends Vue {
     this.chart = null
   }
 
-  initChart() {
-    let ele: any = document.getElementById(this.id);
+  initChart () {
+    let ele: any = document.getElementById(this.id)
     this.chart = echarts.init(ele)
 
     const xAxisData: number[] = []
@@ -143,14 +142,14 @@ class Keyboard extends Vue {
         }],
         animationEasing: 'elasticOut',
         animationEasingUpdate: 'elasticOut',
-        animationDelay(idx: number) {
+        animationDelay (idx: number) {
           return idx * 20
         },
-        animationDelayUpdate(idx: number) {
+        animationDelayUpdate (idx: number) {
           return idx * 20
         }
       })
-  }  
+  }
 }
 
 export default Keyboard

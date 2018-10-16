@@ -7,7 +7,7 @@ class Resize extends Vue {
   public chart: any;
   public __resizeHandler: any;
 
-  mounted() {
+  mounted () {
     this.__resizeHandler = debounce(() => {
       if (this.chart) {
         this.chart.resize()
@@ -19,18 +19,17 @@ class Resize extends Vue {
     sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler)
   }
 
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener('resize', this.__resizeHandler)
 
     const sidebarElm = document.getElementsByClassName('sidebar-container')[0]
     sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler)
   }
 
-  sidebarResizeHandler(e: any) {
+  sidebarResizeHandler (e: any) {
     if (e.propertyName === 'width') {
       this.__resizeHandler()
     }
   }
-
 }
 export default Resize

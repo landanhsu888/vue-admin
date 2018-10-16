@@ -23,24 +23,23 @@ import ResizeHandlerMixin from '@/mixins/ResizeHandler/index'
 @Component({
   name: 'Layout',
   components: {
-    Navbar,
-    Sidebar,
-    AppMain,
-    TagsView
+  Navbar,
+  Sidebar,
+  AppMain,
+  TagsView
   },
   mixins: [ResizeHandlerMixin],
   })
 class Layout extends Vue {
- 
-  public get sidebar() {
+  public get sidebar () {
     return this.$store.state.app.sidebar
   }
 
-  public get device() {
+  public get device () {
     return this.$store.state.app.device
   }
 
-  public get classObj() {
+  public get classObj () {
     return {
       hideSidebar: !this.sidebar.opened,
       openSidebar: this.sidebar.opened,
@@ -49,14 +48,13 @@ class Layout extends Vue {
     }
   }
 
-  public handleClickOutside() {
+  public handleClickOutside () {
     this.$store.dispatch('closeSideBar', { withoutAnimation: false })
   }
 }
 
 export default Layout
 </script>
-
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 

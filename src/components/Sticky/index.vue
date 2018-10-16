@@ -15,7 +15,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'Sticky',
   })
 class Sticky extends Vue {
-  
   @Prop({ default: 0 })
   public stickyTop!: number
 
@@ -32,25 +31,24 @@ class Sticky extends Vue {
   public height: any = void 0
   public isSticky: boolean = false
 
-
-  public mounted() {
+  public mounted () {
     this.height = this.$el.getBoundingClientRect().height
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('resize', this.handleReize)
   }
 
-  public activated() {
+  public activated () {
     this.handleScroll()
   }
 
-  public destroyed() {
+  public destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('resize', this.handleReize)
   }
 
   // method
 
-  public sticky() {
+  public sticky () {
     if (this.active) {
       return
     }
@@ -60,7 +58,7 @@ class Sticky extends Vue {
     this.isSticky = true
   }
 
-  public reset() {
+  public reset () {
     if (!this.active) {
       return
     }
@@ -70,7 +68,7 @@ class Sticky extends Vue {
     this.isSticky = false
   }
 
-  public handleScroll() {
+  public handleScroll () {
     this.width = this.$el.getBoundingClientRect().width
     const offsetTop = this.$el.getBoundingClientRect().top
     if (offsetTop < this.stickyTop) {
@@ -80,7 +78,7 @@ class Sticky extends Vue {
     this.reset()
   }
 
-  public handleReize() {
+  public handleReize () {
     if (this.isSticky) {
       this.width = this.$el.getBoundingClientRect().width + 'px'
     }

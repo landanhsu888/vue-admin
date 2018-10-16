@@ -31,11 +31,10 @@ import { generateTitle } from '@/utils/i18n'
 @Component({
   name: 'TagsView',
   components: {
-    ScrollPane
+  ScrollPane
   }
   })
 class TagsView extends Vue {
-
   public visible: boolean = false
   public top: number = 0
   public left: number = 0
@@ -60,24 +59,24 @@ class TagsView extends Vue {
     }
   }
 
-  public mounted() {
+  public mounted () {
     this.addViewTags()
   }
 
   generateTitle
-   // generateTitle by vue-i18n
-  generateRoute() {
+  // generateTitle by vue-i18n
+  generateRoute () {
     if (this.$route.name) {
       return this.$route
     }
     return false
   }
 
-  isActive(route: any) {
+  isActive (route: any) {
     return route.path === this.$route.path
   }
 
-  addViewTags() {
+  addViewTags () {
     const route = this.generateRoute()
     if (!route) {
       return false
@@ -85,12 +84,12 @@ class TagsView extends Vue {
     this.$store.dispatch('addView', route)
   }
 
-  moveToCurrentTag() {
+  moveToCurrentTag () {
     const tags:any = this.$refs.tag
     this.$nextTick(() => {
       for (const tag of tags) {
         if (tag.to.path === this.$route.path) {
-          let $scrollPane: any = this.$refs.scrollPane;
+          let $scrollPane: any = this.$refs.scrollPane
           $scrollPane.moveToTarget(tag.$el)
 
           // when query is different then update
@@ -103,7 +102,7 @@ class TagsView extends Vue {
     })
   }
 
-  refreshSelectedTag(view: any) {
+  refreshSelectedTag (view: any) {
     this.$store.dispatch('delCachedView', view).then(() => {
       const { fullPath } = view
       this.$nextTick(() => {
@@ -114,7 +113,7 @@ class TagsView extends Vue {
     })
   }
 
-  closeSelectedTag(view: any) {
+  closeSelectedTag (view: any) {
     this.$store.dispatch('delView', view).then(({ visitedViews }) => {
       if (this.isActive(view)) {
         const latestView = visitedViews.slice(-1)[0]
@@ -127,19 +126,19 @@ class TagsView extends Vue {
     })
   }
 
-  closeOthersTags() {
+  closeOthersTags () {
     this.$router.push(this.selectedTag)
     this.$store.dispatch('delOthersViews', this.selectedTag).then(() => {
       this.moveToCurrentTag()
     })
   }
 
-  closeAllTags() {
+  closeAllTags () {
     this.$store.dispatch('delAllViews')
     this.$router.push('/')
   }
 
-  openMenu(tag: any, e: any) {
+  openMenu (tag: any, e: any) {
     this.visible = true
     this.selectedTag = tag
     const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
@@ -147,7 +146,7 @@ class TagsView extends Vue {
     this.top = e.clientY
   }
 
-  closeMenu() {
+  closeMenu () {
     this.visible = false
   }
 }

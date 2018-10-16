@@ -15,7 +15,6 @@ import resizeMixin from '@/mixins/Resize/index'
   mixins: [resizeMixin]
   })
 class MixChart extends Vue {
-
   @Prop({ default: 'chart' })
   public className!: string
 
@@ -32,11 +31,11 @@ class MixChart extends Vue {
   public chart: any = null
 
   // Method of Life cycle
-  public mounted() {
+  public mounted () {
     this.initChart()
   }
 
-  public beforeDestroy() {
+  public beforeDestroy () {
     if (!this.chart) {
       return
     }
@@ -44,7 +43,7 @@ class MixChart extends Vue {
     this.chart = null
   }
 
-  public initChart() {
+  public initChart () {
     let ele: any = document.getElementById(this.id)
     this.chart = echarts.init(ele)
 
@@ -224,7 +223,7 @@ class MixChart extends Vue {
         data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
       }]
     })
-  }  
+  }
 }
 
 export default MixChart

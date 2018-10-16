@@ -110,7 +110,6 @@ import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
   name: 'MDinput'
   })
 class MDinput extends Vue {
-
   @Prop()
   public icon!: string
 
@@ -160,7 +159,7 @@ class MDinput extends Vue {
   public focus: boolean = false
   public fillPlaceHolder: any = null
 
-  public get computedClasses() {
+  public get computedClasses () {
     return {
       'material--active': this.focus,
       'material--disabled': this.disabled,
@@ -173,7 +172,7 @@ class MDinput extends Vue {
     this.currentValue = newValue
   }
 
-  handleModelInput(event: any) {
+  handleModelInput (event: any) {
     const value = event.target.value
     this.$emit('input', value)
     // TODO
@@ -186,7 +185,7 @@ class MDinput extends Vue {
     this.$emit('change', value)
   }
 
-  handleMdFocus(event: any) {
+  handleMdFocus (event: any) {
     this.focus = true
     this.$emit('focus', event)
     if (this.placeholder && this.placeholder !== '') {
@@ -194,7 +193,7 @@ class MDinput extends Vue {
     }
   }
 
-  handleMdBlur(event: any) {
+  handleMdBlur (event: any) {
     this.focus = false
     this.$emit('blur', event)
     this.fillPlaceHolder = null

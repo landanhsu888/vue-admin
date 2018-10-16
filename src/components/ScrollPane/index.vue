@@ -13,23 +13,22 @@ const padding = 15 // tag's padding
   name: 'ScrollPane',
   })
 class ScrollPane extends Vue {
-
   public left: number = 0
   // data
 
   // method
 
-  public handleScroll(e: any) {
-    // TODO    
-    let scrollContainer: any = this.$refs.scrollContainer;
+  public handleScroll (e: any) {
+    // TODO
+    let scrollContainer: any = this.$refs.scrollContainer
     const eventDelta = e.wheelDelta || -e.deltaY * 40
     const $scrollWrapper = scrollContainer.$refs.wrap
     $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
   }
 
-  public moveToTarget($target: any) {
-    // TODO 
-    let scrollContainer: any = this.$refs.scrollContainer;
+  public moveToTarget ($target: any) {
+    // TODO
+    let scrollContainer: any = this.$refs.scrollContainer
     const $container = scrollContainer.$el
     const $containerWidth = $container.offsetWidth
     const $scrollWrapper = scrollContainer.$refs.wrap

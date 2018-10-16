@@ -84,7 +84,6 @@ import passwordSvg from '@/svg/password.svg'
   }
   })
 class Signin extends Vue {
-
   public signinForm: object = {
     username: 'admin',
     password: '1111111'
@@ -92,8 +91,8 @@ class Signin extends Vue {
 
   public signinRules: object = {
     username: [{
-      required: true, 
-      trigger: 'blur', 
+      required: true,
+      trigger: 'blur',
       validator: (rule, value, callback) => {
         if (!isvalidUsername(value)) {
           callback(new Error('Please enter the correct user name'))
@@ -103,7 +102,7 @@ class Signin extends Vue {
       }
     }],
     password: [{
-      required: true, 
+      required: true,
       trigger: 'blur',
       validator: (rule, value, callback) => {
         if (value.length < 6) {
@@ -171,7 +170,6 @@ class Signin extends Vue {
     //   })
     // }
   }
-
 }
 export default Signin
 </script>

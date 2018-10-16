@@ -22,12 +22,11 @@ import draggable from 'vuedraggable'
 @Component({
   name: 'Kanban',
   components: {
-    draggable
+  draggable
   }
   })
 class Kanban extends Vue {
-
-  @Prop({ default: 'Header'})
+  @Prop({ default: 'Header' })
   public headerText!: string
 
   @Prop({ default: {} })
@@ -35,7 +34,6 @@ class Kanban extends Vue {
 
   @Prop({ default: [] })
   public list!: [any]
-
 }
 
 export default Kanban

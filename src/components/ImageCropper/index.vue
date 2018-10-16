@@ -120,7 +120,6 @@ import mimes from '@/configs/mime/index'
   name: 'ImageCropper',
   })
 class ImageCropper extends Vue {
-
   @Prop({ default: 'avatar' })
   public field!: string
 
@@ -169,11 +168,10 @@ class ImageCropper extends Vue {
   @Prop({ default: false })
   public withCredentials!: boolean
 
-
   // data
   public mime: string = mimes['jpg']
   public lang: any = language['en']
-  public isSupported: boolean = typeof FormData !== 'function' ? false : true
+  public isSupported: boolean = typeof FormData === 'function'
   public isSupportTouch: any = document.hasOwnProperty('ontouchstart')
 
   public step: number = 1
@@ -220,7 +218,6 @@ class ImageCropper extends Vue {
     naturalHeight: 0
   }
 
-
   // public get mine (): any {
 
   //   // TODO To Fixed: can be optional langType
@@ -230,7 +227,6 @@ class ImageCropper extends Vue {
   //   const mime = mimes['jpg']
   //   return mime
   // }
-
 
   // public get lang (): any {
 
@@ -322,17 +318,17 @@ class ImageCropper extends Vue {
   }
 
   @Watch('value')
-  valueHandler(newValue: any) {
+  valueHandler (newValue: any) {
     if (newValue && this.loading != 1) {
       this.reset()
     }
   }
 
-  ripple(e: any): void {
+  ripple (e: any): void {
     effectRipple(e, void 0)
   }
 
-  off() {
+  off () {
     setTimeout(() => {
       this.$emit('input', false)
       this.$emit('close')
@@ -342,19 +338,19 @@ class ImageCropper extends Vue {
     }, 200)
   }
 
-  setStep(no: any) {
+  setStep (no: any) {
     // 延时是为了显示动画效果呢，哈哈哈
     setTimeout(() => {
       this.step = no
     }, 200)
   }
 
-  preventDefault(e: any) {
+  preventDefault (e: any) {
     e.preventDefault()
     return false
   }
 
-  handleClick(e: any) {
+  handleClick (e: any) {
     if (this.loading !== 1) {
       if (e.target !== this.$refs.fileinput) {
         e.preventDefault()
@@ -366,7 +362,7 @@ class ImageCropper extends Vue {
     }
   }
 
-  handleChange(e: any) {
+  handleChange (e: any) {
     e.preventDefault()
     if (this.loading !== 1) {
       const files = e.target.files || e.dataTransfer.files
@@ -377,7 +373,7 @@ class ImageCropper extends Vue {
     }
   }
 
-  checkFile(file: any) {
+  checkFile (file: any) {
     // 仅限图片
     if (file.type.indexOf('image') === -1) {
       this.hasError = true
@@ -393,7 +389,7 @@ class ImageCropper extends Vue {
     return true
   }
 
-  reset() {
+  reset () {
     const that = this
     that.loading = 0
     that.hasError = false
@@ -402,7 +398,7 @@ class ImageCropper extends Vue {
   }
 
   // 设置图片源
-  setSourceImg(file: any) {
+  setSourceImg (file: any) {
     let fr = new FileReader()
     fr.onload = () => {
       this.sourceImgUrl = fr.result
@@ -411,9 +407,9 @@ class ImageCropper extends Vue {
     fr.readAsDataURL(file)
   }
 
-  startCrop() {
+  startCrop () {
     let sim = this.sourceImgMasking,
-        img = new Image()
+      img = new Image()
     img.src = this.sourceImgUrl
     img.onload = () => {
       let nWidth = img.naturalWidth,
@@ -453,17 +449,16 @@ class ImageCropper extends Vue {
       this.createImg(void 0)
       this.setStep(2)
     }
-    
   }
 
-  imgStartMove(e: any) {
+  imgStartMove (e: any) {
     e.preventDefault()
     // 支持触摸事件，则鼠标事件无效
     if (this.isSupportTouch && !e.targetTouches) {
       return false
     }
     let et = e.targetTouches ? e.targetTouches[0] : e,
-        simd = this.sourceImgMouseDown
+      simd = this.sourceImgMouseDown
     simd.mX = et.screenX
     simd.mY = et.screenY
     simd.x = this.scale.x
@@ -471,7 +466,7 @@ class ImageCropper extends Vue {
     simd.on = true
   }
 
-  imgMove(e: any) {
+  imgMove (e: any) {
     e.preventDefault()
     // 支持触摸事件，则鼠标事件无效
     if (this.isSupportTouch && !e.targetTouches) {
@@ -513,17 +508,17 @@ class ImageCropper extends Vue {
     scale.y = rY
   }
 
-  startRotateRight(e: any) {
+  startRotateRight (e: any) {
     let that = this,
       {
         scale
       } = that
     scale.rotateRight = true
-    function rotate() {
+    function rotate () {
       if (scale.rotateRight) {
         const degree = ++scale.degree
         that.createImg(degree)
-        setTimeout(function() {
+        setTimeout(function () {
           rotate()
         }, 60)
       }
@@ -532,17 +527,17 @@ class ImageCropper extends Vue {
   }
 
   // 按钮按下开始向左旋转
-  startRotateLeft(e: any) {
+  startRotateLeft (e: any) {
     let that = this,
       {
         scale
       } = that
     scale.rotateLeft = true
-    function rotate() {
+    function rotate () {
       if (scale.rotateLeft) {
         const degree = --scale.degree
         that.createImg(degree)
-        setTimeout(function() {
+        setTimeout(function () {
           rotate()
         }, 60)
       }
@@ -551,23 +546,23 @@ class ImageCropper extends Vue {
   }
 
   // 停止旋转
-  endRotate() {
+  endRotate () {
     this.scale.rotateLeft = false
     this.scale.rotateRight = false
   }
 
   // 按钮按下开始放大
-  startZoomAdd(e: any) {
+  startZoomAdd (e: any) {
     let that = this,
       {
         scale
       } = that
     scale.zoomAddOn = true
-    function zoom() {
+    function zoom () {
       if (scale.zoomAddOn) {
         const range = scale.range >= 100 ? 100 : ++scale.range
         that.zoomImg(range)
-        setTimeout(function() {
+        setTimeout(function () {
           zoom()
         }, 60)
       }
@@ -576,22 +571,22 @@ class ImageCropper extends Vue {
   }
 
   // 按钮松开或移开取消放大
-  endZoomAdd(e: any) {
+  endZoomAdd (e: any) {
     this.scale.zoomAddOn = false
   }
 
   // 按钮按下开始缩小
-  startZoomSub(e: any) {
+  startZoomSub (e: any) {
     let that = this,
       {
         scale
       } = that
     scale.zoomSubOn = true
-    function zoom() {
+    function zoom () {
       if (scale.zoomSubOn) {
         const range = scale.range <= 0 ? 0 : --scale.range
         that.zoomImg(range)
-        setTimeout(function() {
+        setTimeout(function () {
           zoom()
         }, 60)
       }
@@ -600,19 +595,19 @@ class ImageCropper extends Vue {
   }
 
   // 按钮松开或移开取消缩小
-  endZoomSub(e: any) {
+  endZoomSub (e: any) {
     const {
       scale
     } = this
     scale.zoomSubOn = false
   }
 
-  zoomChange(e: any) {
+  zoomChange (e: any) {
     this.zoomImg(e.target.value)
   }
 
   // 缩放原图
-  zoomImg(newRange: any) {
+  zoomImg (newRange: any) {
     const that = this
     const {
       sourceImgMasking,
@@ -659,15 +654,15 @@ class ImageCropper extends Vue {
     scale.width = nWidth
     scale.height = nHeight
     scale.range = newRange
-    setTimeout(function() {
+    setTimeout(function () {
       if (scale.range == newRange) {
         that.createImg(void 0)
       }
     }, 300)
   }
 
-   // 生成需求图片
-  createImg(e: any) {
+  // 生成需求图片
+  createImg (e: any) {
     let that = this,
       {
         mime,
@@ -702,7 +697,7 @@ class ImageCropper extends Vue {
     that.createImgUrl = canvas.toDataURL(mime)
   }
 
-  prepareUpload() {
+  prepareUpload () {
     const {
       url,
       createImgUrl,
@@ -717,8 +712,8 @@ class ImageCropper extends Vue {
     }
   }
 
-   // 上传图片
-  upload() {
+  // 上传图片
+  upload () {
     let that = this,
       {
         lang,
@@ -741,7 +736,7 @@ class ImageCropper extends Vue {
       })
     }
     // 监听进度回调
-    const uploadProgress = function(event: any) {
+    const uploadProgress = function (event: any) {
       if (event.lengthComputable) {
         that.progress = 100 * Math.round(event.loaded) / event.total
       }
@@ -767,7 +762,7 @@ class ImageCropper extends Vue {
     })
   }
 
-  created() {
+  created () {
     // 绑定按键esc隐藏此插件事件
     document.addEventListener('keyup', (e) => {
       if (this.value && (e.key == 'Escape' || e.keyCode == 27)) {

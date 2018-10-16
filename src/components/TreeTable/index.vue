@@ -32,10 +32,9 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import treeToArray from '@/utils/treeToArray'
 
 @Component({
-    name: 'TreeTable'
+  name: 'TreeTable'
   })
 class TreeTable extends Vue {
-
   @Prop()
   public data!: any[] | object
   
@@ -51,7 +50,7 @@ class TreeTable extends Vue {
   @Prop({ default: false })
   public expandAll!: boolean
   
-  public get formatData() {
+  public get formatData () {
     let tmp
     if (!Array.isArray(this.data)) {
       tmp = [this.data]
@@ -68,16 +67,15 @@ class TreeTable extends Vue {
     row.row._show = show
     return show ? 'animation:treeTableShow 1s;-webkit-animation:treeTableShow 1s;' : 'display:none;'
   }
-    // 切换下级是否展开
+  // 切换下级是否展开
   public toggleExpanded (trIndex: any) {
     const record = this.formatData[trIndex]
     record._expanded = !record._expanded
   }
-    // 图标显示
-  public iconShow(index: number, record: any) {
+  // 图标显示
+  public iconShow (index: number, record: any) {
     return (index === 0 && record.children && record.children.length > 0)
   }
-
 }
 
 export default TreeTable

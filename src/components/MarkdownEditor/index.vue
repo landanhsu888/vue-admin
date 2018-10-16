@@ -15,7 +15,6 @@ import SimpleMDE from 'simplemde'
   name: 'MarkdownEditor'
   })
 class MarkdownEditor extends Vue {
-
   @Prop({ default: '' })
   public value!: string
 
@@ -48,8 +47,8 @@ class MarkdownEditor extends Vue {
     this.simplemde.value(val)
   }
 
-  mounted() {
-    let ele: any = document.getElementById(this.id);
+  mounted () {
+    let ele: any = document.getElementById(this.id)
     this.simplemde = new SimpleMDE({
       element: ele,
       autoDownloadFontAwesome: false,
@@ -73,11 +72,10 @@ class MarkdownEditor extends Vue {
     })
   }
 
-  destroyed() {
+  destroyed () {
     this.simplemde.toTextArea()
     this.simplemde = null
   }
-
 }
 
 export default MarkdownEditor

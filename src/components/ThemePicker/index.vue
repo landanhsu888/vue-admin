@@ -13,12 +13,11 @@ const ORIGINAL_THEME = '#409EFF' // default color
 @Component({
   })
 class ThemePicker extends Vue {
-
   public chalk: string = ''
   public theme: string = ORIGINAL_THEME
   
   @Watch('theme')
-  public onTheme(this:any, val: any, oldVal: any) {
+  public onTheme (this:any, val: any, oldVal: any) {
     if (typeof val !== 'string') return
     const themeCluster = this.getThemeCluster(val.replace('#', ''))
     const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
@@ -63,7 +62,7 @@ class ThemePicker extends Vue {
     })
   }
 
-  public updateStyle(style: any, oldCluster: any, newCluster:any): any {
+  public updateStyle (style: any, oldCluster: any, newCluster:any): any {
     let newStyle = style
     oldCluster.forEach((color: any, index: any) => {
       newStyle = newStyle.replace(new RegExp(color, 'ig'), newCluster[index])
@@ -71,7 +70,7 @@ class ThemePicker extends Vue {
     return newStyle
   }
 
-  public getCSSString(this: any, url: any, callback: Function, variable: any): void {
+  public getCSSString (this: any, url: any, callback: Function, variable: any): void {
     const xhr = new XMLHttpRequest()
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -83,7 +82,7 @@ class ThemePicker extends Vue {
     xhr.send()
   }
 
-  public getThemeCluster(theme: any) {
+  public getThemeCluster (theme: any) {
     const tintColor = (color: any, tint: any) => {
       let red:any = parseInt(color.slice(0, 2), 16)
       let green:any = parseInt(color.slice(2, 4), 16)
@@ -127,7 +126,6 @@ class ThemePicker extends Vue {
     clusters.push(shadeColor(theme, 0.1))
     return clusters
   }
-
 }
 
 export default ThemePicker

@@ -57,7 +57,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'ErrorLog',
   })
 class ErrorLog extends Vue {
-
   // data
   public dialogTableVisible: boolean = false
 

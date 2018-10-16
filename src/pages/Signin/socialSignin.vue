@@ -24,16 +24,15 @@ import qqSvg from '@/svg/qq.svg'
   }
   })
 class SocialSignin extends Vue {
-
-  created() {
+  created () {
     // window.addEventListener('hashchange', this.afterQRScan)
   }
 
-  destroyed() {
+  destroyed () {
     // window.removeEventListener('hashchange', this.afterQRScan)
   }
 
-  wechatHandleClick(thirdpart) {
+  wechatHandleClick (thirdpart) {
     alert('ok')
     // this.$store.commit('SET_AUTH_TYPE', thirdpart)
     // const appid = 'xxxxx'
@@ -42,7 +41,7 @@ class SocialSignin extends Vue {
     // openWindow(url, thirdpart, 540, 540)
   }
 
-  tencentHandleClick(thirdpart) {
+  tencentHandleClick (thirdpart) {
     alert('ok')
     // this.$store.commit('SET_AUTH_TYPE', thirdpart)
     // const client_id = 'xxxxx'
@@ -50,7 +49,6 @@ class SocialSignin extends Vue {
     // const url = 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirect_uri
     // openWindow(url, thirdpart, 540, 540)
   }
-
 }
 
 export default SocialSignin

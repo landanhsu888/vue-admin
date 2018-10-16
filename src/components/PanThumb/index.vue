@@ -16,7 +16,6 @@ import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
   name: 'PanThumb'
   })
 class PanThumb extends Vue {
-
   @Prop()
   public image!: string
 

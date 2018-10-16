@@ -62,31 +62,30 @@ import ThemePicker from '@/components/ThemePicker/index.vue'
 @Component({
   name: 'Navbar',
   components: {
-    Breadcrumb,
-    Hamburger,
-    ErrorLog,
-    Screenfull,
-    SizeSelect,
-    LangSelect,
-    ThemePicker
+  Breadcrumb,
+  Hamburger,
+  ErrorLog,
+  Screenfull,
+  SizeSelect,
+  LangSelect,
+  ThemePicker
   }
   })
 class Navbar extends Vue {
-
   public get sidebar () {
-    return this.$store.getters.sidebar;
+    return this.$store.getters.sidebar
   }
 
   public get name () {
-    return this.$store.getters.name;
+    return this.$store.getters.name
   }
 
   public get avatar () {
-    return this.$store.getters.avatar;
+    return this.$store.getters.avatar
   }
 
   public get device () {
-    return this.$store.getters.device;
+    return this.$store.getters.device
   }
 
   public toggleSideBar () {

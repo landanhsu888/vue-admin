@@ -14,7 +14,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   mixins: [resizeMixin]
   })
 class LineMarker extends Vue {
-
   @Prop({ default: 'chart' })
   public className!: string
   @Prop({ default: 'chart' })
@@ -26,11 +25,11 @@ class LineMarker extends Vue {
 
   // data
   public chart: any = null
-  mounted() {
+  mounted () {
     this.initChart()
   }
 
-  beforeDestroy() {
+  beforeDestroy () {
     if (!this.chart) {
       return
     }
@@ -38,8 +37,8 @@ class LineMarker extends Vue {
     this.chart = null
   }
 
-  initChart() {
-    let ele: any = document.getElementById(this.id);
+  initChart () {
+    let ele: any = document.getElementById(this.id)
     this.chart = echarts.init(ele)
 
     this.chart.setOption({
@@ -218,7 +217,7 @@ class LineMarker extends Vue {
         data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
       }]
     })
-  }  
+  }
 }
 
 export default LineMarker

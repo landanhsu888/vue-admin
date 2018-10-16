@@ -20,22 +20,21 @@ import 'codemirror/addon/lint/json-lint'
   name: 'JsonEditor',
   })
 class JsonEditor extends Vue {
-
   @Prop()
   public value!: any
 
   public jsonEditor: any
 
   @Watch('value')
-  valueHandler(value: any) {
+  valueHandler (value: any) {
     const editor_value = this.jsonEditor.getValue()
     if (value !== editor_value) {
       this.jsonEditor.setValue(JSON.stringify(this.value, null, 2))
     }
   }
 
-  mounted() {
-    let textarea: any = this.$refs.textarea;
+  mounted () {
+    let textarea: any = this.$refs.textarea
     this.jsonEditor = CodeMirror.fromTextArea(textarea, {
       lineNumbers: true,
       mode: 'application/json',
@@ -51,7 +50,7 @@ class JsonEditor extends Vue {
     })
   }
 
-  getValue() {
+  getValue () {
     return this.jsonEditor.getValue()
   }
 }

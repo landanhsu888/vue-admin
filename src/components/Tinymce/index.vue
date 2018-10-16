@@ -13,17 +13,16 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import editorImage from '@/components/editorImage/index.vue'
 
 @Component({
-    name: 'Tinymce',
-    components: {
-      editorImage
-    }
+  name: 'Tinymce',
+  components: {
+  editorImage
+  }
   })
 class Tinymce extends Vue {
-
   @Prop({ default: 'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '') })
   public id!: string
   
-  @Prop({ default: ''})
+  @Prop({ default: '' })
   public value!: string
 
   @Prop({ default: [] })
@@ -44,11 +43,11 @@ class Tinymce extends Vue {
     'zh': 'zh_CN'
   }
 
-  public get language() {
+  public get language () {
     return this.languageTypeList[this.$store.getters.language]
   }
 
-  public updateStyle(style: any, oldCluster: any, newCluster:any): any {
+  public updateStyle (style: any, oldCluster: any, newCluster:any): any {
     let newStyle = style
     oldCluster.forEach((color: any, index: any) => {
       newStyle = newStyle.replace(new RegExp(color, 'ig'), newCluster[index])
@@ -56,7 +55,7 @@ class Tinymce extends Vue {
     return newStyle
   }
 
-  public getCSSString(this: any, url: any, callback: Function, variable: any): void {
+  public getCSSString (this: any, url: any, callback: Function, variable: any): void {
     const xhr = new XMLHttpRequest()
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -68,7 +67,7 @@ class Tinymce extends Vue {
     xhr.send()
   }
 
-  public getThemeCluster(theme: any) {
+  public getThemeCluster (theme: any) {
     const tintColor = (color: any, tint: any) => {
       let red:any = parseInt(color.slice(0, 2), 16)
       let green:any = parseInt(color.slice(2, 4), 16)
@@ -112,7 +111,6 @@ class Tinymce extends Vue {
     clusters.push(shadeColor(theme, 0.1))
     return clusters
   }
-
 }
 
 export default Tinymce

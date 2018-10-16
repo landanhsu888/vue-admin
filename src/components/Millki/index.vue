@@ -13,13 +13,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'Sticky',
   })
 class Sticky extends Vue {
-  
   @Prop({ default: '' })
   public className!: string
 
   @Prop({ default: 'vue-element-admin' })
   public text!: string
-
 }
 
 export default Sticky

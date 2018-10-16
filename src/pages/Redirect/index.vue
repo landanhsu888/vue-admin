@@ -10,7 +10,7 @@ import { Component, Vue } from 'vue-property-decorator'
   }
   })
 class Redirect extends Vue {
-  beforeCreate() {
+  beforeCreate () {
     const { params, query } = this.$route
     const { path } = params
     this.$router.replace({ path: '/' + path, query })

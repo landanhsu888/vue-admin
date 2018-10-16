@@ -14,19 +14,17 @@ import BugSvg from './../svg/bug.svg'
   name: 'Item'
   })
 class Item extends Vue {
-
   @Prop({ default: '' })
   public icon!: string
 
   @Prop({ default: '' })
   public title!: string
   
-  render(h, context) {
+  render (h, context) {
     const { icon, title } = context.props
     const vnodes: any[] = []
     return vnodes
   }
-
 }
 
 export default Item
@@ -35,4 +33,3 @@ export default Item
 <style scoped lang="scss">
 
 </style>
-

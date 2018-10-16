@@ -17,7 +17,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'DropdownMenu', // name: Share ??
   })
 class DropdownMenu extends Vue {
-
   @Prop({ default: [] })
   public items!: [any]
   
@@ -28,7 +27,7 @@ class DropdownMenu extends Vue {
   // data
 
   // method
-  public clickTitle() {
+  public clickTitle () {
     this.isActive = !this.isActive
   }
 }

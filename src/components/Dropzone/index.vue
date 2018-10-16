@@ -19,7 +19,6 @@ Dropzone.autoDiscover = false
   }
   })
 class _Dropzone extends Vue {
-
   @Prop({})
   public id!: string
 
@@ -67,7 +66,7 @@ class _Dropzone extends Vue {
   public options: any = null
 
   @Watch('defaultImg')
-  defaultImgHandler(val: any) {
+  defaultImgHandler (val: any) {
     if (val.length === 0) {
       this.initOnce = false
       return
@@ -80,7 +79,7 @@ class _Dropzone extends Vue {
   // computed
 
   // The method of Vue lifecycle
-  mounted() {
+  mounted () {
     const element:any = document.getElementById(this.id)
     const vm = this
     this.dropzone = new Dropzone(element, {
@@ -97,7 +96,7 @@ class _Dropzone extends Vue {
       dictMaxFilesExceeded: '只能一个图',
       previewTemplate: '<div class="dz-preview dz-file-preview">  <div class="dz-image" style="width:' + this.thumbnailWidth + 'px;height:' + this.thumbnailHeight + 'px" ><img style="width:' + this.thumbnailWidth + 'px;height:' + this.thumbnailHeight + 'px" data-dz-thumbnail /></div>  <div class="dz-details"><div class="dz-size"><span data-dz-size></span></div> <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>  <div class="dz-error-message"><span data-dz-errormessage></span></div>  <div class="dz-success-mark"> <i class="material-icons">done</i> </div>  <div class="dz-error-mark"><i class="material-icons">error</i></div></div>',
       
-      init(this: any) {
+      init (this: any) {
         const val: any = vm.defaultImg
         if (!val) return
         if (Array.isArray(val)) {
@@ -121,7 +120,7 @@ class _Dropzone extends Vue {
         }
       },
       accept: (file, done) => {
-        /* 七牛*/
+        /* 七牛 */
         // const token = this.$store.getters.token;
         // getToken(token).then(response => {
         //   file.token = response.data.qiniu_token;
@@ -159,27 +158,27 @@ class _Dropzone extends Vue {
     })
   }
 
-  destroyed(): void {
+  destroyed (): void {
     document.removeEventListener('paste', this.pasteImg)
     this.dropzone.destroy()
   }
   // method
-  removeAllFiles(): void {
-      this.dropzone.removeAllFiles(true)
+  removeAllFiles (): void {
+    this.dropzone.removeAllFiles(true)
   }
 
-  processQueue(): void {
+  processQueue (): void {
     this.dropzone.processQueue()
   }
 
-  pasteImg(event: any) {
+  pasteImg (event: any) {
     const items = (event.clipboardData || event.originalEvent.clipboardData).items
     if (items[0].kind === 'file') {
       this.dropzone.addFile(items[0].getAsFile())
     }
   }
 
-  initImages(val: any) {
+  initImages (val: any) {
     if (!val) return
     if (Array.isArray(val)) {
       val.map((v, i) => {
@@ -198,7 +197,6 @@ class _Dropzone extends Vue {
       mockFile.previewElement.classList.add('dz-complete')
     }
   }
-
 }
 
 export default _Dropzone

@@ -16,7 +16,6 @@ import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
   }
   })
 class AppMain extends Vue {
-
   public get cachedViews () {
     return this.$store.state.tagsView.cachedViews
   }
@@ -24,7 +23,6 @@ class AppMain extends Vue {
   public get key () {
     return this.$route.fullPath
   }
-
 }
 
 export default AppMain

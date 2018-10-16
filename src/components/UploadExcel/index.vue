@@ -35,24 +35,24 @@ class UploadExcel extends Vue {
   }
 
   private handleDrop (e: any) {
-      e.stopPropagation()
-      e.preventDefault()
-      if (this.loading) return
-      const files = e.dataTransfer.files
-      if (files.length !== 1) {
-        this.$message.error('Only support uploading one file!')
-        return
-      }
-      const rawFile = files[0] // only use files[0]
-
-      if (!this.isExcel(rawFile)) {
-        this.$message.error('Only supports upload .xlsx, .xls, .csv suffix files')
-        return false
-      }
-      this.upload(rawFile)
-      e.stopPropagation()
-      e.preventDefault()
+    e.stopPropagation()
+    e.preventDefault()
+    if (this.loading) return
+    const files = e.dataTransfer.files
+    if (files.length !== 1) {
+      this.$message.error('Only support uploading one file!')
+      return
     }
+    const rawFile = files[0] // only use files[0]
+
+    if (!this.isExcel(rawFile)) {
+      this.$message.error('Only supports upload .xlsx, .xls, .csv suffix files')
+      return false
+    }
+    this.upload(rawFile)
+    e.stopPropagation()
+    e.preventDefault()
+  }
 
   // method
   private handleDragover (e: any): void {
@@ -66,14 +66,14 @@ class UploadExcel extends Vue {
     document.getElementById('excel-upload-input').click()
   }
 
-  private handleClick(this: any, e: any): void {
+  private handleClick (this: any, e: any): void {
     const files = e.target.files
     const rawFile = files[0] // only use files[0]
     if (!rawFile) return
     this.upload(rawFile)
   }
 
-  private upload(rawFile: any) {
+  private upload (rawFile: any) {
     let $excelUploadInput:any = this.$refs['excel-upload-input']
     $excelUploadInput.value = null // fix can't select the same excel
 
@@ -87,7 +87,7 @@ class UploadExcel extends Vue {
     }
   }
 
-  private readerData(rawFile: any) {
+  private readerData (rawFile: any) {
     this.loading = true
     return new Promise((resolve, reject) => {
       const reader = new FileReader()
@@ -116,7 +116,7 @@ class UploadExcel extends Vue {
     return o
   }
 
-  private getHeaderRow(sheet: any) {
+  private getHeaderRow (sheet: any) {
     const headers: string[] = []
     const range = XLSX.utils.decode_range(sheet['!ref'])
     let C

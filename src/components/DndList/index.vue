@@ -35,7 +35,6 @@ import draggable from 'vuedraggable'
   }
   })
 class DndList extends Vue {
-
   @Prop({ default: [] })
   public list1!: [any]
   @Prop({ default: [] })
@@ -62,15 +61,15 @@ class DndList extends Vue {
   // The method of Vue lifecycle
 
   // method
-  isNotInList1(v: any) {
+  isNotInList1 (v: any) {
     return this.list1.every(k => v.id !== k.id)
   }
 
-  isNotInList2(v: any) {
+  isNotInList2 (v: any) {
     return this.list2.every(k => v.id !== k.id)
   }
 
-  deleteEle(ele: any) {
+  deleteEle (ele: any) {
     for (const item of this.list1) {
       if (item.id === ele.id) {
         const index = this.list1.indexOf(item)
@@ -83,7 +82,7 @@ class DndList extends Vue {
     }
   }
 
-  pushEle(ele: any) {
+  pushEle (ele: any) {
     this.list1.push(ele)
   }
 }

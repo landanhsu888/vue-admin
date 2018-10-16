@@ -1,4 +1,4 @@
-declare module "element-ui" {
-  const content: any;
-  export default content;
+declare module 'element-ui' {
+  const content: any
+  export default content
 }

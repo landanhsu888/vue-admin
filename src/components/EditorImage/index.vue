@@ -28,7 +28,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'EditorImage'
   })
 class EditorImage extends Vue {
-
   @Prop({ default: '#1890ff' })
   public color!: string
 
@@ -41,62 +40,61 @@ class EditorImage extends Vue {
 
   // The method of Vue lifecycle
 
-    checkAllSuccess() {
-      return Object.keys(this.listObj).every(item => this.listObj[item].hasSuccess)
-    }
+  checkAllSuccess () {
+    return Object.keys(this.listObj).every(item => this.listObj[item].hasSuccess)
+  }
 
-    handleSubmit() {
-      const arr = Object.keys(this.listObj).map(v => this.listObj[v])
-      if (!this.checkAllSuccess()) {
-        this.$message('请等待所有图片上传成功 或 出现了网络问题，请刷新页面重新上传！')
+  handleSubmit () {
+    const arr = Object.keys(this.listObj).map(v => this.listObj[v])
+    if (!this.checkAllSuccess()) {
+      this.$message('请等待所有图片上传成功 或 出现了网络问题，请刷新页面重新上传！')
+      return
+    }
+    this.$emit('successCBK', arr)
+    this.listObj = {}
+    this.fileList = []
+    this.dialogVisible = false
+  }
+
+  handleSuccess (response: any, file: any) {
+    const uid = file.uid
+    const objKeyArr = Object.keys(this.listObj)
+    for (let i = 0, len = objKeyArr.length; i < len; i++) {
+      if (this.listObj[objKeyArr[i]].uid === uid) {
+        this.listObj[objKeyArr[i]].url = response.files.file
+        this.listObj[objKeyArr[i]].hasSuccess = true
         return
       }
-      this.$emit('successCBK', arr)
-      this.listObj = {}
-      this.fileList = []
-      this.dialogVisible = false
     }
+  }
 
-    handleSuccess(response: any, file: any) {
-      const uid = file.uid
-      const objKeyArr = Object.keys(this.listObj)
-      for (let i = 0, len = objKeyArr.length; i < len; i++) {
-        if (this.listObj[objKeyArr[i]].uid === uid) {
-          this.listObj[objKeyArr[i]].url = response.files.file
-          this.listObj[objKeyArr[i]].hasSuccess = true
-          return
-        }
+  handleRemove (file: any): void {
+    const uid = file.uid
+    const objKeyArr = Object.keys(this.listObj)
+    for (let i = 0, len = objKeyArr.length; i < len; i++) {
+      if (this.listObj[objKeyArr[i]].uid === uid) {
+        delete this.listObj[objKeyArr[i]]
+        return
       }
     }
+  }
 
-    handleRemove(file: any): void {
-      const uid = file.uid
-      const objKeyArr = Object.keys(this.listObj)
-      for (let i = 0, len = objKeyArr.length; i < len; i++) {
-        if (this.listObj[objKeyArr[i]].uid === uid) {
-          delete this.listObj[objKeyArr[i]]
-          return
-        }
+  beforeUpload (file: any) {
+    const _self = this
+    const _URL = window.URL
+    const fileName = file.uid
+    this.listObj[fileName] = {}
+    return new Promise((resolve, reject) => {
+      const img = new Image()
+      img.src = _URL.createObjectURL(file)
+      img.onload = function (this: any) {
+        _self.listObj[fileName] = { hasSuccess: false, uid: file.uid, width: this.width, height: this.height }
       }
-    }
-
-    beforeUpload(file: any) {
-      const _self = this
-      const _URL = window.URL
-      const fileName = file.uid
-      this.listObj[fileName] = {}
-      return new Promise((resolve, reject) => {
-        const img = new Image()
-        img.src = _URL.createObjectURL(file)
-        img.onload = function(this: any) {
-          _self.listObj[fileName] = { hasSuccess: false, uid: file.uid, width: this.width, height: this.height }
-        }
-        resolve(true)
-      })
-    }
+      resolve(true)
+    })
+  }
 
   // method
-
 }
 
 export default EditorImage

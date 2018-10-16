@@ -17,7 +17,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'BackToTop',
   })
 class BackToTop extends Vue {
-
   @Prop({ default: 200 })
   public visibilityHeight!: number
 

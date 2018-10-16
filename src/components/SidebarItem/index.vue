@@ -50,7 +50,6 @@ import Item from '@/components/Item/index.vue'
   }
   })
 class SidebarItem extends Vue {
-
   @Prop()
   public item!: object
 
