@@ -1,6 +1,4 @@
-import { Json } from '@/typings/interface/Json'
-
-export declare interface AxiosHelper {
+interface AxiosHelper {
   get(url: string, params: object | object[], usingRecursive: boolean): Promise<Json | Json[]>
 
   post(url: string, params: object | object[], usingRecursive: boolean): Promise<Json | Json[]>

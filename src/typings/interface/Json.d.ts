@@ -1,5 +1,5 @@
 
-export interface Json {
+interface Json {
   status: number
   data: any[]
   jwt: string

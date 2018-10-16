@@ -1,9 +1,6 @@
 import axios from 'axios'
 
-import { AxiosHelper as IAxiosHelper } from '@/typings/interface/AxiosHelper'
-
 class AxiosHelper {
-
   /**
    * @param {string} url The URL of API laction
    * @param {object | Array<object>} params The params of HTTP body 
