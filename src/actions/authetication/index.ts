@@ -10,11 +10,9 @@ let authentication = {
       password: password
     }
     AxiosHelper.post(url, user, false).then((resJson) => {
-        type resJson = {
-          data: any[]
-        }
-        let members = resJson.data
-        context.commit('MEMBER_FIND', members)
+      resJson = resJson as Json
+      let members = resJson.data
+      context.commit('MEMBER_FIND', members)
     })
   }
 }

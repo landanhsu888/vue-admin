@@ -1,27 +1,14 @@
-declare module "*.svg" {
-  const content: any;
-  export default content;
-}
+// import { AxiosHelper } from '@/typings/interface/AxiosHelper'
 
-declare module "vuedraggable" {
-  const content: any;
-  export default content;
-}
-
-declare module "element-ui" {
-  const content: any;
-  export default content;
-}
-
-declare interface Json {
+interface Json {
   status: number
   data: any[]
   jwt: string
   code: number
   message: string
 }
-  
-declare interface AxiosHelper {
+
+interface AxiosHelper {
   get(url: string, params: object | object[], usingRecursive: boolean): Promise<Json | Json[]>
 
   post(url: string, params: object | object[], usingRecursive: boolean): Promise<Json | Json[]>
@@ -31,7 +18,8 @@ declare interface AxiosHelper {
   delete(url: string, params: object | object[], usingRecursive: boolean): Promise<Json | Json[]>
 }
 
+
 declare module '@/helpers/Axios/index' {
-const content: AxiosHelper;
-export default content;
+  const content: AxiosHelper;
+  export default content;
 }
