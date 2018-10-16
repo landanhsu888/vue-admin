@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 class AxiosHelper {
-  get (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
-    usingRecursive = !!usingRecursive;
+  get (url: string, params: object | Array<object>, isPolling: boolean = false) {
+    isPolling = !!isPolling;
 
     if (params instanceof Array) {
         let paramses = params;
         let resJsons: any[] = [];
-        if (usingRecursive) {
+        if (isPolling) {
           let nextPromise = function(i) {
               if (i >= paramses.length) {
                   return Promise.resolve(resJsons);
@@ -33,13 +33,13 @@ class AxiosHelper {
     return axios.get(url, params)
   }
 
-  post (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
-    usingRecursive = !!usingRecursive;
+  post (url: string, params: object | Array<object>, isPolling: boolean = false): Promise<object> | Promise<object[]> {
+    isPolling = !!isPolling;
 
     if (params instanceof Array) {
         let paramses = params;
         let resJsons: any[] = [];
-        if (usingRecursive) {
+        if (isPolling) {
           let nextPromise = function(i) {
               if (i >= paramses.length) {
                   return Promise.resolve(resJsons);
@@ -65,13 +65,13 @@ class AxiosHelper {
     return axios.post(url, params)
   }
 
-  put (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
-    usingRecursive = !!usingRecursive;
+  put (url: string, params: object | Array<object>, isPolling: boolean = false) {
+    isPolling = !!isPolling;
 
     if (params instanceof Array) {
         let paramses = params;
         let resJsons: any[] = [];
-        if (usingRecursive) {
+        if (isPolling) {
           let nextPromise = function(i) {
               if (i >= paramses.length) {
                   return Promise.resolve(resJsons);
@@ -97,13 +97,13 @@ class AxiosHelper {
     return axios.put(url, params)
   }
 
-  delete (url: string, params: object | Array<object>, usingRecursive: boolean = false) {
-    usingRecursive = !!usingRecursive;
+  delete (url: string, params: object | Array<object>, isPolling: boolean = false) {
+    isPolling = !!isPolling;
 
     if (params instanceof Array) {
         let paramses = params;
         let resJsons: any[] = [];
-        if (usingRecursive) {
+        if (isPolling) {
           let nextPromise = function(i) {
               if (i >= paramses.length) {
                   return Promise.resolve(resJsons);

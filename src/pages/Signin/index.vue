@@ -145,7 +145,7 @@ class Signin extends Vue {
   }
 
   handleSignin () {
-    this.$store.dispatch('LoginByUsername', this.signinForm).then(() => {
+    this.$store.dispatch('AUTHETICATION_POST_SIGNIN', this.signinForm).then(() => {
       this.loading = false
       this.$router.push({ path: this.redirect || '/' })
     }).catch(() => {
