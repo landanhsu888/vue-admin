@@ -9,7 +9,7 @@ let authentication = {
       username: username,
       password: password
     }
-    AxiosHelper.post(url, user, false).then((resJson) => {
+    AxiosHelper.post(url, user).then((resJson) => {
       resJson = resJson as Json
       let members = resJson.data
       context.commit('MEMBER_FIND', members)
