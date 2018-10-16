@@ -43,7 +43,7 @@ class AxiosHelper {
    * @param {object | Array<object>} params The params of HTTP body 
    * @param {boolean} isPolling Use polling (recursive) to send the request
   */
-  post (url: string, params: object | Array<object>, isPolling: boolean = false): Promise<object> | Promise<object[]> {
+  post (url: string, params: object | Array<object>, isPolling: boolean = false, isPollingUntilFirstSuccess: boolean = false): Promise<object> | Promise<object[]> {
     isPolling = !!isPolling;
 
     if (params instanceof Array) {
