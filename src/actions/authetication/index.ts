@@ -1,6 +1,6 @@
 import AxiosHelper from '@/helpers/Axios/index'
 
-import URL from '@/configs/url/index'
+import URL from '@/configs/URL/index'
 
 let authentication = {
   AUTHETICATION_POST_SIGNIN (context: any, { username, password }) {
