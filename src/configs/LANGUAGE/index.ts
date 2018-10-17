@@ -1,5 +1,5 @@
 const LANGUAGE = {
-  zh: {
+  'zh': {
     hint: '点击，或拖动图片至此处',
     loading: '正在上传……',
     noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
@@ -37,7 +37,7 @@ const LANGUAGE = {
       lowestPx: '圖片最低像素為（寬*高）：'
     }
   },
-  en: {
+  'en': {
     hint: 'Click or drag the file here to upload',
     loading: 'Uploading…',
     noSupported: 'Browser is not supported, please use IE10+ or other browsers',
@@ -56,7 +56,7 @@ const LANGUAGE = {
       lowestPx: 'Image\'s size is too low. Expected at least: '
     }
   },
-  ro: {
+  'ro': {
     hint: 'Atinge sau trage fișierul aici',
     loading: 'Se încarcă',
     noSupported: 'Browser-ul tău nu suportă acest feature. Te rugăm încearcă cu alt browser.',
@@ -77,7 +77,7 @@ const LANGUAGE = {
       loewstPx: 'Imaginea este prea mică; Minim: '
     }
   },
-  ru: {
+  'ru': {
     hint: 'Нажмите, или перетащите файл в это окно',
     loading: 'Загружаю……',
     noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
@@ -115,7 +115,7 @@ const LANGUAGE = {
       lowestPx: 'O tamanho da imagem é muito pequeno. Tamanho mínimo: '
     }
   },
-  fr: {
+  'fr': {
     hint: 'Cliquez ou glissez le fichier ici.',
     loading: 'Téléchargement…',
     noSupported: 'Votre navigateur n\'est pas supporté. Utilisez IE10 + ou un autre navigateur s\'il vous plaît.',
@@ -134,7 +134,7 @@ const LANGUAGE = {
       lowestPx: 'L\'image sélectionnée est trop petite. Dimensions attendues: '
     }
   },
-  nl: {
+  'nl': {
     hint: 'Klik hier of sleep een afbeelding in dit vlak',
     loading: 'Uploaden…',
     noSupported: 'Je browser wordt helaas niet ondersteund. Gebruik IE10+ of een andere browser.',
@@ -153,7 +153,7 @@ const LANGUAGE = {
       lowestPx: 'De afbeelding is te klein! Minimale afmetingen: '
     }
   },
-  tr: {
+  'tr': {
     hint: 'Tıkla veya yüklemek istediğini buraya sürükle',
     loading: 'Yükleniyor…',
     noSupported: 'Tarayıcı desteklenmiyor, lütfen IE10+ veya farklı tarayıcı kullanın',
@@ -191,7 +191,7 @@ const LANGUAGE = {
       lowestPx: 'La imagen es demasiado pequeño. Se espera por lo menos:'
     }
   },
-  de: {
+  'de': {
     hint: 'Klick hier oder zieh eine Datei hier rein zum Hochladen',
     loading: 'Hochladen…',
     noSupported: 'Browser wird nicht unterstützt, bitte verwende IE10+ oder andere Browser',
@@ -210,7 +210,7 @@ const LANGUAGE = {
       lowestPx: 'Das Bild ist zu klein. Mindestens: '
     }
   },
-  ja: {
+  'ja': {
     hint: 'クリック・ドラッグしてファイルをアップロード',
     loading: 'アップロード中...',
     noSupported: 'このブラウザは対応されていません。IE10+かその他の主要ブラウザをお使いください。',
