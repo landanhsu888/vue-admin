@@ -1,8 +1,7 @@
 /**
  * Created by jiachenpan on 16/11/18.
  */
-
-export function parseTime (time: any, cFormat: any) {
+function parseTime (time: any, cFormat: any) {
   if (arguments.length === 0) {
     return null
   }
@@ -37,7 +36,7 @@ export function parseTime (time: any, cFormat: any) {
   return timeStr
 }
 
-export function formatTime (time: any, option: any) {
+function formatTime (time: any, option: any) {
   time = +time * 1000
   const d: any = new Date(time)
   const now = Date.now()
@@ -72,7 +71,7 @@ export function formatTime (time: any, option: any) {
 }
 
 // 格式化时间
-export function getQueryObject (url: any) {
+function getQueryObject (url: any) {
   url = url == null ? window.location.href : url
   const search = url.substring(url.lastIndexOf('?') + 1)
   const obj: any = {}
@@ -92,7 +91,7 @@ export function getQueryObject (url: any) {
   * @param {Sting} val input value
   * @returns {number} output value
   */
-export function getByteLen (val: any) {
+function getByteLen (val: any) {
   let len = 0
   for (let i = 0; i < val.length; i++) {
     // eslint-disable-next-line
@@ -115,7 +114,7 @@ export function cleanArray (actual: any) {
   return newArray
 }
 
-export function param (json: any) {
+function param (json: any) {
   if (!json) return ''
   return cleanArray(
     Object.keys(json).map(key => {
@@ -125,7 +124,7 @@ export function param (json: any) {
   ).join('&')
 }
 
-export function param2Obj (url: any) {
+function param2Obj (url: any) {
   const search = url.split('?')[1]
   if (!search) {
     return {}
@@ -140,13 +139,13 @@ export function param2Obj (url: any) {
   )
 }
 
-export function html2Text (val: any) {
+function html2Text (val: any) {
   const div = document.createElement('div')
   div.innerHTML = val
   return div.textContent || div.innerText
 }
 
-export function objectMerge (target: any, source: any) {
+function objectMerge (target: any, source: any) {
   /* Merges two  objects,
       giving the last one precedence */
 
@@ -167,7 +166,8 @@ export function objectMerge (target: any, source: any) {
   return target
 }
 
-export function scrollTo (element: any, to: any, duration: any) {
+
+function scrollTo (element: any, to: any, duration: any) {
   if (duration <= 0) return
   const difference = to - element.scrollTop
   const perTick = (difference / duration) * 10
@@ -178,7 +178,7 @@ export function scrollTo (element: any, to: any, duration: any) {
   }, 10)
 }
 
-export function toggleClass (element: any, className: any) {
+function toggleClass (element: any, className: any) {
   if (!element || !className) {
     return
   }
@@ -194,7 +194,7 @@ export function toggleClass (element: any, className: any) {
   element.className = classString
 }
 
-export const pickerOptions = [
+const pickerOptions = [
   {
     text: '今天',
     onClick (picker: any) {
@@ -233,7 +233,7 @@ export const pickerOptions = [
   }
 ]
 
-export function getTime (type: any) {
+function getTime (type: any) {
   if (type === 'start') {
     return new Date().getTime() - 3600 * 1000 * 24 * 90
   } else {
@@ -241,7 +241,7 @@ export function getTime (type: any) {
   }
 }
 
-export function debounce (func: any, wait: any, immediate: any) {
+function debounce (func: any, wait: any, immediate: any) {
   let timeout: any, args: any, context: any, timestamp: any, result: any
 
   const later = function () {
@@ -281,7 +281,8 @@ export function debounce (func: any, wait: any, immediate: any) {
  * Has a lot of edge cases bug
  * If you want to use a perfect deep copy, use lodash's _.cloneDeep
  */
-export function deepClone (source: any) {
+
+function deepClone (source: any) {
   if (!source && typeof source !== 'object') {
     // throw new Error('error arguments', 'shallowClone')
     throw new Error('error arguments')
@@ -297,6 +298,8 @@ export function deepClone (source: any) {
   return targetObj
 }
 
-export function uniqueArr (arr: any) {
+function uniqueArr (arr: any) {
   return Array.from(new Set(arr))
 }
+
+export { parseTime, formatTime, getQueryObject, getByteLen, param, param2Obj, html2Text, objectMerge, scrollTo, toggleClass, pickerOptions, getTime, debounce, deepClone, uniqueArr } 
